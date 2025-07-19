@@ -1,0 +1,1161 @@
+{
+	"enemies": [
+		{
+			"enemy_stats": {
+				"id": 0,
+				"name": "Slime",
+				"description": "I wonder if it's edible?",
+				"element": "Basic",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 39,
+				"mp_max": 10,
+				"hp": 39,
+				"mp": 10,
+				"strength": 8,
+				"wisdom": 8,
+				"defense": 5,
+				"level": 1,
+				"experience": 180,
+				"gold": 50
+			},
+			"enemy_attacks": [
+				{
+					"name": "Bounce",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 0,
+							"weight": 9
+						},
+						{
+							"id": 5,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 10,
+							"weight": 1
+						},
+						{
+							"id": 11,
+							"weight": 1
+						},
+						{
+							"id": 12,
+							"weight": 1
+						},
+						{
+							"id": 19,
+							"weight": 1
+						},
+						{
+							"id": 20,
+							"weight": 1
+						},
+						{
+							"id": 21,
+							"weight": 1
+						},
+						{
+							"id": 28,
+							"weight": 1
+						},
+						{
+							"id": 29,
+							"weight": 1
+						},
+						{
+							"id": 30,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 1,
+				"name": "Rocky",
+				"description": "He's a bit of a blockhead.",
+				"element": "Earth",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 50,
+				"mp_max": 8,
+				"hp": 50,
+				"mp": 8,
+				"strength": 7,
+				"wisdom": 7,
+				"defense": 8,
+				"level": 1,
+				"experience": 200,
+				"gold": 70
+			},
+			"enemy_attacks": [
+				{
+					"name": "Rock throw",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 0,
+							"weight": 9
+						},
+						{
+							"id": 5,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 10,
+							"weight": 1
+						},
+						{
+							"id": 11,
+							"weight": 1
+						},
+						{
+							"id": 12,
+							"weight": 1
+						},
+						{
+							"id": 19,
+							"weight": 1
+						},
+						{
+							"id": 20,
+							"weight": 1
+						},
+						{
+							"id": 21,
+							"weight": 1
+						},
+						{
+							"id": 28,
+							"weight": 1
+						},
+						{
+							"id": 29,
+							"weight": 1
+						},
+						{
+							"id": 30,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 2,
+				"name": "Mushroom",
+				"description": "Shrooms will mess you up, that's why they're illegal.",
+				"element": "Earth",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 48,
+				"mp_max": 15,
+				"hp": 48,
+				"mp": 15,
+				"strength": 5,
+				"wisdom": 10,
+				"defense": 5,
+				"level": 1,
+				"experience": 250,
+				"gold": 55
+			},
+			"enemy_attacks": [
+				{
+					"name": "Hallucinate",
+					"damage_modifier": 2.0,
+					"mp_use": 5,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Spores",
+					"damage_modifier": 2.5,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 0,
+							"weight": 9
+						},
+						{
+							"id": 5,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 10,
+							"weight": 1
+						},
+						{
+							"id": 11,
+							"weight": 1
+						},
+						{
+							"id": 12,
+							"weight": 1
+						},
+						{
+							"id": 19,
+							"weight": 1
+						},
+						{
+							"id": 20,
+							"weight": 1
+						},
+						{
+							"id": 21,
+							"weight": 1
+						},
+						{
+							"id": 28,
+							"weight": 1
+						},
+						{
+							"id": 29,
+							"weight": 1
+						},
+						{
+							"id": 30,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 3,
+				"name": "Duck",
+				"description": "He's a blast in the bath!",
+				"element": "Fire",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 72,
+				"mp_max": 10,
+				"hp": 72,
+				"mp": 10,
+				"strength": 13,
+				"wisdom": 10,
+				"defense": 8,
+				"level": 2,
+				"experience": 1000,
+				"gold": 100
+			},
+			"enemy_attacks": [
+				{
+					"name": "Tackle",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Explosion",
+					"damage_modifier": 3.0,
+					"mp_use": 4,
+					"attack_type": "Magic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 1,
+							"weight": 9
+						},
+						{
+							"id": 6,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 10,
+							"weight": 1
+						},
+						{
+							"id": 11,
+							"weight": 1
+						},
+						{
+							"id": 12,
+							"weight": 1
+						},
+						{
+							"id": 19,
+							"weight": 1
+						},
+						{
+							"id": 20,
+							"weight": 1
+						},
+						{
+							"id": 21,
+							"weight": 1
+						},
+						{
+							"id": 28,
+							"weight": 1
+						},
+						{
+							"id": 29,
+							"weight": 1
+						},
+						{
+							"id": 30,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 4,
+				"name": "Triple A battery",
+				"description": "Nobody likes triple A batteries.",
+				"element": "Electric",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 96,
+				"mp_max": 15,
+				"hp": 96,
+				"mp": 15,
+				"strength": 10,
+				"wisdom": 15,
+				"defense": 10,
+				"level": 2,
+				"experience": 1200,
+				"gold": 80
+			},
+			"enemy_attacks": [
+				{
+					"name": "Hit",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Spark",
+					"damage_modifier": 2.0,
+					"mp_use": 5,
+					"attack_type": "Magic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 1,
+							"weight": 9
+						},
+						{
+							"id": 6,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 10,
+							"weight": 1
+						},
+						{
+							"id": 11,
+							"weight": 1
+						},
+						{
+							"id": 12,
+							"weight": 1
+						},
+						{
+							"id": 19,
+							"weight": 1
+						},
+						{
+							"id": 20,
+							"weight": 1
+						},
+						{
+							"id": 21,
+							"weight": 1
+						},
+						{
+							"id": 28,
+							"weight": 1
+						},
+						{
+							"id": 29,
+							"weight": 1
+						},
+						{
+							"id": 30,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 5,
+				"name": "Skeleton",
+				"description": "Never skip leg day.",
+				"element": "Dark",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 156,
+				"mp_max": 15,
+				"hp": 156,
+				"mp": 15,
+				"strength": 28,
+				"wisdom": 22,
+				"defense": 15,
+				"level": 3,
+				"experience": 2700,
+				"gold": 125
+			},
+			"enemy_attacks": [
+				{
+					"name": "Bone Crush",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Curse",
+					"damage_modifier": 2.0,
+					"mp_use": 5,
+					"attack_type": "Magic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 2,
+							"weight": 9
+						},
+						{
+							"id": 7,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 13,
+							"weight": 1
+						},
+						{
+							"id": 14,
+							"weight": 1
+						},
+						{
+							"id": 15,
+							"weight": 1
+						},
+						{
+							"id": 22,
+							"weight": 1
+						},
+						{
+							"id": 23,
+							"weight": 1
+						},
+						{
+							"id": 24,
+							"weight": 1
+						},
+						{
+							"id": 31,
+							"weight": 1
+						},
+						{
+							"id": 32,
+							"weight": 1
+						},
+						{
+							"id": 33,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 6,
+				"name": "Mixtape",
+				"description": "An underappreciated mixtape, spits straight fire.",
+				"element": "Fire",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 135,
+				"mp_max": 20,
+				"hp": 135,
+				"mp": 20,
+				"strength": 20,
+				"wisdom": 28,
+				"defense": 14,
+				"level": 3,
+				"experience": 3200,
+				"gold": 150
+			},
+			"enemy_attacks": [
+				{
+					"name": "Drop The Beat",
+					"damage_modifier": 2.0,
+					"mp_use": 7,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Lay A Verse",
+					"damage_modifier": 1.8,
+					"mp_use": 4,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Tangle",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 2,
+							"weight": 9
+						},
+						{
+							"id": 7,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 13,
+							"weight": 1
+						},
+						{
+							"id": 14,
+							"weight": 1
+						},
+						{
+							"id": 15,
+							"weight": 1
+						},
+						{
+							"id": 22,
+							"weight": 1
+						},
+						{
+							"id": 23,
+							"weight": 1
+						},
+						{
+							"id": 24,
+							"weight": 1
+						},
+						{
+							"id": 31,
+							"weight": 1
+						},
+						{
+							"id": 32,
+							"weight": 1
+						},
+						{
+							"id": 33,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 7,
+				"name": "Squirrel",
+				"description": "It's nuts.",
+				"element": "Basic",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 304,
+				"mp_max": 20,
+				"hp": 304,
+				"mp": 20,
+				"strength": 52,
+				"wisdom": 40,
+				"defense": 25,
+				"level": 4,
+				"experience": 4500,
+				"gold": 200
+			},
+			"enemy_attacks": [
+				{
+					"name": "Bite",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Gnaw",
+					"damage_modifier": 1.5,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Acornucopia of pain",
+					"damage_modifier": 2.0,
+					"mp_use": 5,
+					"attack_type": "Magic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 3,
+							"weight": 9
+						},
+						{
+							"id": 8,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 13,
+							"weight": 1
+						},
+						{
+							"id": 14,
+							"weight": 1
+						},
+						{
+							"id": 15,
+							"weight": 1
+						},
+						{
+							"id": 22,
+							"weight": 1
+						},
+						{
+							"id": 23,
+							"weight": 1
+						},
+						{
+							"id": 24,
+							"weight": 1
+						},
+						{
+							"id": 31,
+							"weight": 1
+						},
+						{
+							"id": 32,
+							"weight": 1
+						},
+						{
+							"id": 33,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 8,
+				"name": "Book",
+				"description": "Full of questionable knowledge.",
+				"element": "Light",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 273,
+				"mp_max": 30,
+				"hp": 273,
+				"mp": 30,
+				"strength": 37,
+				"wisdom": 54,
+				"defense": 24,
+				"level": 4,
+				"experience": 5800,
+				"gold": 225
+			},
+			"enemy_attacks": [
+				{
+					"name": "Body Slam",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Confusion",
+					"damage_modifier": 2.0,
+					"mp_use": 6,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Face the Book",
+					"damage_modifier": 2.2,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 3,
+							"weight": 9
+						},
+						{
+							"id": 8,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 13,
+							"weight": 1
+						},
+						{
+							"id": 14,
+							"weight": 1
+						},
+						{
+							"id": 15,
+							"weight": 1
+						},
+						{
+							"id": 22,
+							"weight": 1
+						},
+						{
+							"id": 23,
+							"weight": 1
+						},
+						{
+							"id": 24,
+							"weight": 1
+						},
+						{
+							"id": 31,
+							"weight": 1
+						},
+						{
+							"id": 32,
+							"weight": 1
+						},
+						{
+							"id": 33,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 9,
+				"name": "Battery Rat",
+				"description": "This enemy seems familiar...",
+				"element": "Electric",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 513,
+				"mp_max": 30,
+				"hp": 513,
+				"mp": 30,
+				"strength": 70,
+				"wisdom": 70,
+				"defense": 36,
+				"level": 5,
+				"experience": 12500,
+				"gold": 300
+			},
+			"enemy_attacks": [
+				{
+					"name": "Thunder Punch",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Thunder Shock",
+					"damage_modifier": 2.0,
+					"mp_use": 10,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Thunder Wave",
+					"damage_modifier": 1.8,
+					"mp_use": 5,
+					"attack_type": "Magic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 4,
+							"weight": 9
+						},
+						{
+							"id": 9,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 16,
+							"weight": 1
+						},
+						{
+							"id": 17,
+							"weight": 1
+						},
+						{
+							"id": 18,
+							"weight": 1
+						},
+						{
+							"id": 25,
+							"weight": 1
+						},
+						{
+							"id": 26,
+							"weight": 1
+						},
+						{
+							"id": 27,
+							"weight": 1
+						},
+						{
+							"id": 34,
+							"weight": 1
+						},
+						{
+							"id": 35,
+							"weight": 1
+						},
+						{
+							"id": 36,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 10,
+				"name": "Penguin",
+				"description": "Noot Noot!",
+				"element": "Water",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 472,
+				"mp_max": 40,
+				"hp": 472,
+				"mp": 40,
+				"strength": 93,
+				"wisdom": 68,
+				"defense": 34,
+				"level": 5,
+				"experience": 12500,
+				"gold": 350
+			},
+			"enemy_attacks": [
+				{
+					"name": "Water Gun",
+					"damage_modifier": 2.0,
+					"mp_use": 8,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Doot Doot",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Peck",
+					"damage_modifier": 1.8,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				}
+			],
+			"loot_table": [
+				{
+					"no_drop_weight": 10,
+					"items": [
+						{
+							"id": 4,
+							"weight": 9
+						},
+						{
+							"id": 9,
+							"weight": 6
+						}
+					]
+				},
+				{
+					"no_drop_weight": 13,
+					"items": [
+						{
+							"id": 16,
+							"weight": 1
+						},
+						{
+							"id": 17,
+							"weight": 1
+						},
+						{
+							"id": 18,
+							"weight": 1
+						},
+						{
+							"id": 25,
+							"weight": 1
+						},
+						{
+							"id": 26,
+							"weight": 1
+						},
+						{
+							"id": 27,
+							"weight": 1
+						},
+						{
+							"id": 34,
+							"weight": 1
+						},
+						{
+							"id": 35,
+							"weight": 1
+						},
+						{
+							"id": 36,
+							"weight": 1
+						}
+					]
+				}
+			]
+		},
+		{
+			"enemy_stats": {
+				"id": 11,
+				"name": "Emperor Penguin",
+				"description": "",
+				"element": "Fire",
+				"next_phase": 12
+			},
+			"stats": {
+				"hp_max": 576,
+				"mp_max": 100,
+				"hp": 576,
+				"mp": 100,
+				"strength": 92,
+				"wisdom": 117,
+				"defense": 45,
+				"level": 5,
+				"experience": 0,
+				"gold": 0
+			},
+			"enemy_attacks": [
+				{
+					"name": "Wing",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Ignition",
+					"damage_modifier": 2.0,
+					"mp_use": 5,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Peck",
+					"damage_modifier": 2.2,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Flamethrower",
+					"damage_modifier": 2.2,
+					"mp_use": 12,
+					"attack_type": "Magic"
+				}
+			],
+			"loot_table": []
+		},
+		{
+			"enemy_stats": {
+				"id": 12,
+				"name": "Emperor Penguin",
+				"description": "",
+				"element": "Electric",
+				"next_phase": 13
+			},
+			"stats": {
+				"hp_max": 645,
+				"mp_max": 50,
+				"hp": 645,
+				"mp": 50,
+				"strength": 118,
+				"wisdom": 90,
+				"defense": 50,
+				"level": 5,
+				"experience": 0,
+				"gold": 0
+			},
+			"enemy_attacks": [
+				{
+					"name": "Static Peck",
+					"damage_modifier": 2.0,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Shock Volt",
+					"damage_modifier": 2.0,
+					"mp_use": 5,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Tesla Contact",
+					"damage_modifier": 2.2,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Monarch's Thunder",
+					"damage_modifier": 2.2,
+					"mp_use": 7,
+					"attack_type": "Magic"
+				}
+			],
+			"loot_table": []
+		},
+		{
+			"enemy_stats": {
+				"id": 13,
+				"name": "Emperor Penguin",
+				"description": "",
+				"element": "Water",
+				"next_phase": -1
+			},
+			"stats": {
+				"hp_max": 304,
+				"mp_max": 100,
+				"hp": 304,
+				"mp": 100,
+				"strength": 78,
+				"wisdom": 80,
+				"defense": 55,
+				"level": 5,
+				"experience": 1000000,
+				"gold": 1000000
+			},
+			"enemy_attacks": [
+				{
+					"name": "Frigid Onslaught",
+					"damage_modifier": 2.5,
+					"mp_use": 0,
+					"attack_type": "Basic"
+				},
+				{
+					"name": "Tsunami",
+					"damage_modifier": 2.5,
+					"mp_use": 7,
+					"attack_type": "Magic"
+				},
+				{
+					"name": "Royal Decree",
+					"damage_modifier": 0.5,
+					"mp_use": 30,
+					"attack_type": "Percentile"
+				}
+			],
+			"loot_table": []
+		}
+	]
+}

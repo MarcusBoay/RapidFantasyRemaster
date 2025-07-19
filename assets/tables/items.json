@@ -1,0 +1,522 @@
+{
+	"items": [
+		{
+			"id": 0,
+			"name": "Red Potion I",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 20,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 1,
+			"name": "Red Potion II",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 40,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 2,
+			"name": "Red Potion III",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 80,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 3,
+			"name": "Red Potion IV",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 160,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 4,
+			"name": "Red Potion V",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 320,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 5,
+			"name": "Blue Potion I",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 15,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 6,
+			"name": "Blue Potion II",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 30,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 7,
+			"name": "Blue Potion III",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 60,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 8,
+			"name": "Blue Potion IV",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 120,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 9,
+			"name": "Blue Potion V",
+			"type": "Consumable",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 240,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 10,
+			"name": "Steel Sword",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 20,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 11,
+			"name": "Steel Shield",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 25,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 5,
+				"wisdom": 0,
+				"defense": 6
+			}
+		},
+		{
+			"id": 12,
+			"name": "Amethyst Wand",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 2,
+				"wisdom": 10,
+				"defense": 0
+			}
+		},
+		{
+			"id": 13,
+			"name": "Doomblade",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 35,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 14,
+			"name": "Obsidian Barrier",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 50,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 10,
+				"wisdom": 0,
+				"defense": 9
+			}
+		},
+		{
+			"id": 15,
+			"name": "Ancient Staff",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 4,
+				"wisdom": 20,
+				"defense": 0
+			}
+		},
+		{
+			"id": 16,
+			"name": "Cataclysm",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 50,
+				"wisdom": 0,
+				"defense": 0
+			}
+		},
+		{
+			"id": 17,
+			"name": "PeaceKeeper",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 75,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 15,
+				"wisdom": 0,
+				"defense": 12
+			}
+		},
+		{
+			"id": 18,
+			"name": "Blind Justice",
+			"item_type": "Weapon",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 6,
+				"wisdom": 30,
+				"defense": 0
+			}
+		},
+		{
+			"id": 19,
+			"name": "Cactus Armor",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 10,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 10,
+				"wisdom": 0,
+				"defense": 3
+			}
+		},
+		{
+			"id": 20,
+			"name": "Steel Armor",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 50,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 9
+			}
+		},
+		{
+			"id": 21,
+			"name": "Enchanted Robes",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 5,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 10,
+				"defense": 2
+			}
+		},
+		{
+			"id": 22,
+			"name": "Spiked Armor",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 20,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 20,
+				"wisdom": 0,
+				"defense": 6
+			}
+		},
+		{
+			"id": 23,
+			"name": "Mythril Armor",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 100,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 18
+			}
+		},
+		{
+			"id": 24,
+			"name": "Spectre Robes",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 10,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 20,
+				"defense": 4
+			}
+		},
+		{
+			"id": 25,
+			"name": "Gladiator Armor",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 40,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 30,
+				"wisdom": 0,
+				"defense": 9
+			}
+		},
+		{
+			"id": 26,
+			"name": "Titan Armor",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 200,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 0,
+				"defense": 36
+			}
+		},
+		{
+			"id": 27,
+			"name": "Ethereal Robes",
+			"item_type": "Armor",
+			"stats": {
+				"hp_max": 15,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 30,
+				"defense": 6
+			}
+		},
+		{
+			"id": 28,
+			"name": "Power Ring",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 10,
+				"wisdom": 2,
+				"defense": 0
+			}
+		},
+		{
+			"id": 29,
+			"name": "Hard Bracelet",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 25,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 5,
+				"defense": 6
+			}
+		},
+		{
+			"id": 30,
+			"name": "Wise Necklace",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 20,
+				"defense": 0
+			}
+		},
+		{
+			"id": 31,
+			"name": "Mighty Ring",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 20,
+				"wisdom": 4,
+				"defense": 0
+			}
+		},
+		{
+			"id": 32,
+			"name": "Resistant Bracelet",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 50,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 10,
+				"defense": 9
+			}
+		},
+		{
+			"id": 33,
+			"name": "Sagacious Necklace",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 35,
+				"defense": 0
+			}
+		},
+		{
+			"id": 34,
+			"name": "Ultimate Ring",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 30,
+				"wisdom": 6,
+				"defense": 0
+			}
+		},
+		{
+			"id": 35,
+			"name": "Ultimate Bracelet",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 75,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 15,
+				"defense": 12
+			}
+		},
+		{
+			"id": 36,
+			"name": "Ultimate Necklace",
+			"item_type": "Accessory",
+			"stats": {
+				"hp_max": 0,
+				"mp_max": 0,
+				"hp": 0,
+				"mp": 0,
+				"strength": 0,
+				"wisdom": 50,
+				"defense": 0
+			}
+		}
+	]
+}
