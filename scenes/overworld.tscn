@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://c2b8paallkb"]
+[gd_scene load_steps=34 format=4 uid="uid://c2b8paallkb"]
 
 [ext_resource type="Texture2D" uid="uid://d4eyufdu7pdmh" path="res://assets/images_32x32/area0.png" id="1_u2ss0"]
 [ext_resource type="Texture2D" uid="uid://daue6mbg8nf37" path="res://assets/images_32x32/area1.png" id="2_3gvrs"]
@@ -14,6 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://bi52v7mfo2kna" path="res://assets/images_32x32/npc3.png" id="9_rep30"]
 [ext_resource type="Texture2D" uid="uid://dt02x1whpo3ki" path="res://assets/images_32x32/npc4.png" id="10_pss1p"]
 [ext_resource type="Texture2D" uid="uid://bbxa6ff2q1uqi" path="res://assets/images_32x32/npc5.png" id="11_ha27p"]
+[ext_resource type="Texture2D" uid="uid://7vprstmkc1cv" path="res://assets/images_32x32/black.png" id="12_rep30"]
+[ext_resource type="Script" uid="uid://do8kvdxg4upl5" path="res://scripts/my_resource_script.gd" id="15_fuc0k"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ha27p"]
+texture = ExtResource("12_rep30")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_fuc0k"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ha27p")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_356oe"]
 texture = ExtResource("1_u2ss0")
@@ -1001,11 +1014,11 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_3gvrs"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_356oe")
-sources/1 = SubResource("TileSetAtlasSource_fkyvp")
-sources/2 = SubResource("TileSetAtlasSource_dbwep")
-sources/3 = SubResource("TileSetAtlasSource_fuc0k")
 sources/4 = SubResource("TileSetAtlasSource_rep30")
+sources/3 = SubResource("TileSetAtlasSource_fuc0k")
+sources/2 = SubResource("TileSetAtlasSource_dbwep")
+sources/1 = SubResource("TileSetAtlasSource_fkyvp")
+sources/0 = SubResource("TileSetAtlasSource_356oe")
 sources/5 = SubResource("TileSetAtlasSource_pss1p")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2jxyl"]
@@ -1051,8 +1064,6 @@ custom_data_layer_0/name = "Dialog"
 custom_data_layer_0/type = 4
 custom_data_layer_1/name = "MobID"
 custom_data_layer_1/type = 2
-custom_data_layer_2/name = "asrt"
-custom_data_layer_2/type = 27
 sources/0 = SubResource("TileSetAtlasSource_2jxyl")
 sources/1 = SubResource("TileSetAtlasSource_5rnle")
 sources/2 = SubResource("TileSetAtlasSource_gjn0k")
@@ -1062,21 +1073,18 @@ sources/4 = SubResource("TileSetAtlasSource_qkc01")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvrs"]
 size = Vector2(34, 34)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2ss0"]
-size = Vector2(550, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_356oe"]
-size = Vector2(60.731, 361.065)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eab5i"]
-size = Vector2(20, 327)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkyvp"]
 size = Vector2(497, 307)
 
 [node name="Overworld" type="Node2D"]
 
 [node name="TileMapLayerHolder" type="Node2D" parent="."]
+
+[node name="Boundaries" type="TileMapLayer" parent="TileMapLayerHolder" groups=["boundary"]]
+position = Vector2(1000, 10000)
+tile_map_data = PackedByteArray("AAD3/wUAAAAAAAAAAAD4/wUAAAAAAAAAAAD5/wUAAAAAAAAAAAD6/wUAAAAAAAAAAAD7/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD+/wUAAAAAAAAAAAAAAAUAAAAAAAAAAAABAAUAAAAAAAAAAAACAAUAAAAAAAAAAAADAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAPz/AAAAAAAAAAAIAPv/AAAAAAAAAAAIAPr/AAAAAAAAAAAIAPn/AAAAAAAAAAAIAPj/AAAAAAAAAAAIAPf/AAAAAAAAAAAIAPH/AAAAAAAAAAAIAPL/AAAAAAAAAAAIAPP/AAAAAAAAAAAIAPT/AAAAAAAAAAAIAPX/AAAAAAAAAAAIAPb/AAAAAAAAAAAJAPH/AAAAAAAAAAAKAPH/AAAAAAAAAAALAPH/AAAAAAAAAAAMAPH/AAAAAAAAAAANAPH/AAAAAAAAAAAOAPH/AAAAAAAAAAAPAPH/AAAAAAAAAAAQAPH/AAAAAAAAAAARAPH/AAAAAAAAAAASAPH/AAAAAAAAAAATAPH/AAAAAAAAAAAUAPH/AAAAAAAAAAAVAPH/AAAAAAAAAAAWAPH/AAAAAAAAAAAXAPH/AAAAAAAAAAAYAPH/AAAAAAAAAAAZAPH/AAAAAAAAAAAaAPH/AAAAAAAAAAAbAPH/AAAAAAAAAAAcAPH/AAAAAAAAAAAdAPH/AAAAAAAAAAAeAPH/AAAAAAAAAAAfAPH/AAAAAAAAAAAgAPH/AAAAAAAAAAAhAPH/AAAAAAAAAAAiAPH/AAAAAAAAAAAjAPH/AAAAAAAAAAAkAPH/AAAAAAAAAAAlAPH/AAAAAAAAAAAmAPH/AAAAAAAAAAAnAPH/AAAAAAAAAAAoAPH/AAAAAAAAAAApAPH/AAAAAAAAAAAqAPH/AAAAAAAAAAArAPH/AAAAAAAAAAAsAPH/AAAAAAAAAAAtAPH/AAAAAAAAAAAuAPH/AAAAAAAAAAAvAPH/AAAAAAAAAAAwAPH/AAAAAAAAAAAxAPH/AAAAAAAAAAAyAPH/AAAAAAAAAAAzAPH/AAAAAAAAAAA0APH/AAAAAAAAAAA1APH/AAAAAAAAAAA2APH/AAAAAAAAAAA3APH/AAAAAAAAAAA4APH/AAAAAAAAAAA4APD/AAAAAAAAAAA4AO//AAAAAAAAAAA4AO7/AAAAAAAAAAA4AO3/AAAAAAAAAAA4AOz/AAAAAAAAAAA4AOv/AAAAAAAAAAA4AOr/AAAAAAAAAAA4AOn/AAAAAAAAAAA4AOj/AAAAAAAAAAA4AOf/AAAAAAAAAAA4AOb/AAAAAAAAAAA3AOb/AAAAAAAAAAA2AOb/AAAAAAAAAAA1AOb/AAAAAAAAAAA0AOb/AAAAAAAAAAAzAOb/AAAAAAAAAAAyAOb/AAAAAAAAAAAxAOb/AAAAAAAAAAAwAOb/AAAAAAAAAAAvAOb/AAAAAAAAAAAuAOb/AAAAAAAAAAAtAOb/AAAAAAAAAAAsAOb/AAAAAAAAAAArAOb/AAAAAAAAAAAqAOb/AAAAAAAAAAApAOb/AAAAAAAAAAAoAOb/AAAAAAAAAAAnAOb/AAAAAAAAAAAmAOb/AAAAAAAAAAAlAOb/AAAAAAAAAAAkAOb/AAAAAAAAAAAjAOb/AAAAAAAAAAAiAOb/AAAAAAAAAAAhAOb/AAAAAAAAAAAgAOb/AAAAAAAAAAAfAOb/AAAAAAAAAAAeAOb/AAAAAAAAAAAdAOb/AAAAAAAAAAAcAOb/AAAAAAAAAAAbAOb/AAAAAAAAAAAaAOb/AAAAAAAAAAAZAOb/AAAAAAAAAAAYAOb/AAAAAAAAAAAXAOb/AAAAAAAAAAAWAOb/AAAAAAAAAAAVAOb/AAAAAAAAAAAUAOb/AAAAAAAAAAATAOb/AAAAAAAAAAASAOb/AAAAAAAAAAARAOb/AAAAAAAAAAAQAOb/AAAAAAAAAAAPAOb/AAAAAAAAAAAOAOb/AAAAAAAAAAANAOb/AAAAAAAAAAAMAOb/AAAAAAAAAAALAOb/AAAAAAAAAAAKAOb/AAAAAAAAAAAJAOb/AAAAAAAAAAAIAOb/AAAAAAAAAAAHAOb/AAAAAAAAAAAGAOb/AAAAAAAAAAAFAOb/AAAAAAAAAAAEAOb/AAAAAAAAAAADAOb/AAAAAAAAAAACAOb/AAAAAAAAAAABAOb/AAAAAAAAAAAAAOb/AAAAAAAAAAD//+b/AAAAAAAAAAD+/+b/AAAAAAAAAAD9/+b/AAAAAAAAAAD8/+b/AAAAAAAAAAD7/+b/AAAAAAAAAAD6/+b/AAAAAAAAAAD5/+b/AAAAAAAAAAD4/+b/AAAAAAAAAAD3/+b/AAAAAAAAAAD3/+f/AAAAAAAAAAD3/+j/AAAAAAAAAAD3/+n/AAAAAAAAAAD3/+r/AAAAAAAAAAD3/+v/AAAAAAAAAAD3/+z/AAAAAAAAAAD3/+3/AAAAAAAAAAD3/+7/AAAAAAAAAAD3/+//AAAAAAAAAAD3//D/AAAAAAAAAAD3//H/AAAAAAAAAAD3//T/AAAAAAAAAAD3//L/AAAAAAAAAAD3//P/AAAAAAAAAAD3//X/AAAAAAAAAAD3//b/AAAAAAAAAAD3//f/AAAAAAAAAAD3//j/AAAAAAAAAAD3//n/AAAAAAAAAAD3//r/AAAAAAAAAAD3//v/AAAAAAAAAAD3//z/AAAAAAAAAAD3//3/AAAAAAAAAAD3//7/AAAAAAAAAAD3////AAAAAAAAAAD3/wMAAAAAAAAAAAD3/wQAAAAAAAAAAAD3/wIAAAAAAAAAAAD3/wEAAAAAAAAAAAD3/wAAAAAAAAAAAAD//wUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_fuc0k")
+use_kinematic_bodies = true
 
 [node name="Terrain" type="TileMapLayer" parent="TileMapLayerHolder"]
 position = Vector2(1000, 10000)
@@ -1087,7 +1095,7 @@ rendering_quadrant_size = 32
 [node name="NPCs" type="TileMapLayer" parent="TileMapLayerHolder" groups=["boundary"]]
 unique_name_in_owner = true
 position = Vector2(1000, 10000)
-tile_map_data = PackedByteArray("AAABAAAABAAAAAAAAAD8/wEAAgAAAAAAAAD6/wEAAwAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAAABAAAAAAAAAD8/wEAAgAAAAAAAAD6/wEAAwAAAAAAAAA0AOv/AAAAAAAAAAAwAOj/AQAAAAAAAAAxAO//AQAAAAAAAAAyAO//AQAAAAAAAAA1AOn/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_wf4j4")
 use_kinematic_bodies = true
 
@@ -1128,28 +1136,6 @@ script = ExtResource("5_eab5i")
 
 [node name="Camera2D" type="Camera2D" parent="Area0"]
 
-[node name="BottomBoundary" type="Area2D" parent="Area0" groups=["boundary"]]
-position = Vector2(-1, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area0/BottomBoundary"]
-position = Vector2(3, 168)
-shape = SubResource("RectangleShape2D_u2ss0")
-
-[node name="LeftBoundary" type="Area2D" parent="Area0" groups=["boundary"]]
-position = Vector2(-290, -140)
-scale = Vector2(0.275966, 0.941652)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area0/LeftBoundary"]
-position = Vector2(100.085, 151.859)
-shape = SubResource("RectangleShape2D_356oe")
-
-[node name="RightBoundary" type="Area2D" parent="Area0" groups=["boundary"]]
-position = Vector2(270, -169)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area0/RightBoundary"]
-position = Vector2(-6, 169)
-shape = SubResource("RectangleShape2D_eab5i")
-
 [node name="Area2D" type="Area2D" parent="Area0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area0/Area2D"]
@@ -1161,21 +1147,6 @@ position = Vector2(1000, 9680)
 script = ExtResource("5_eab5i")
 
 [node name="Camera2D" type="Camera2D" parent="Area1"]
-
-[node name="LeftBoundary" type="Area2D" parent="Area1" groups=["boundary"]]
-position = Vector2(-290, -140)
-scale = Vector2(0.275966, 0.941652)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1/LeftBoundary"]
-position = Vector2(100.085, 151.859)
-shape = SubResource("RectangleShape2D_356oe")
-
-[node name="RightBoundary" type="Area2D" parent="Area1" groups=["boundary"]]
-position = Vector2(270, -169)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area1/RightBoundary"]
-position = Vector2(-6, 169)
-shape = SubResource("RectangleShape2D_eab5i")
 
 [node name="Area2D" type="Area2D" parent="Area1"]
 
@@ -1189,21 +1160,6 @@ script = ExtResource("5_eab5i")
 
 [node name="Camera2D" type="Camera2D" parent="Area2"]
 
-[node name="TopBoundary" type="Area2D" parent="Area2" groups=["boundary"]]
-position = Vector2(-4, -336)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2/TopBoundary"]
-position = Vector2(3, 168)
-shape = SubResource("RectangleShape2D_u2ss0")
-
-[node name="LeftBoundary" type="Area2D" parent="Area2" groups=["boundary"]]
-position = Vector2(-290, -140)
-scale = Vector2(0.275966, 0.941652)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2/LeftBoundary"]
-position = Vector2(100.085, 151.859)
-shape = SubResource("RectangleShape2D_356oe")
-
 [node name="Area2D" type="Area2D" parent="Area2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2/Area2D"]
@@ -1216,25 +1172,11 @@ script = ExtResource("5_eab5i")
 
 [node name="Camera2D" type="Camera2D" parent="Area3"]
 
-[node name="TopBoundary" type="Area2D" parent="Area3" groups=["boundary"]]
-position = Vector2(-4, -336)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area3/TopBoundary"]
-position = Vector2(3, 168)
-shape = SubResource("RectangleShape2D_u2ss0")
-
 [node name="Area2D" type="Area2D" parent="Area3"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area3/Area2D"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_fkyvp")
-
-[node name="BottomBoundary" type="Area2D" parent="Area3" groups=["boundary"]]
-position = Vector2(16, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area3/BottomBoundary"]
-position = Vector2(3, 168)
-shape = SubResource("RectangleShape2D_u2ss0")
 
 [node name="Area4" type="Node2D" parent="."]
 position = Vector2(2024, 9360)
@@ -1242,25 +1184,11 @@ script = ExtResource("5_eab5i")
 
 [node name="Camera2D" type="Camera2D" parent="Area4"]
 
-[node name="TopBoundary" type="Area2D" parent="Area4" groups=["boundary"]]
-position = Vector2(-4, -336)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area4/TopBoundary"]
-position = Vector2(3, 168)
-shape = SubResource("RectangleShape2D_u2ss0")
-
 [node name="Area2D" type="Area2D" parent="Area4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area4/Area2D"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_fkyvp")
-
-[node name="BottomBoundary" type="Area2D" parent="Area4" groups=["boundary"]]
-position = Vector2(16, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area4/BottomBoundary"]
-position = Vector2(3, 168)
-shape = SubResource("RectangleShape2D_u2ss0")
 
 [node name="Area5" type="Node2D" parent="."]
 position = Vector2(2536, 9360)
@@ -1268,31 +1196,11 @@ script = ExtResource("5_eab5i")
 
 [node name="Camera2D" type="Camera2D" parent="Area5"]
 
-[node name="TopBoundary" type="Area2D" parent="Area5" groups=["boundary"]]
-position = Vector2(-4, -336)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area5/TopBoundary"]
-position = Vector2(3, 168)
-shape = SubResource("RectangleShape2D_u2ss0")
-
 [node name="Area2D" type="Area2D" parent="Area5"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area5/Area2D"]
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_fkyvp")
 
-[node name="BottomBoundary" type="Area2D" parent="Area5" groups=["boundary"]]
-position = Vector2(16, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area5/BottomBoundary"]
-position = Vector2(3, 168)
-shape = SubResource("RectangleShape2D_u2ss0")
-
-[node name="RightBoundary" type="Area2D" parent="Area5" groups=["boundary"]]
-position = Vector2(270, -169)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area5/RightBoundary"]
-position = Vector2(-6, 169)
-shape = SubResource("RectangleShape2D_eab5i")
-
 [node name="testnode" type="Node2D" parent="."]
+script = ExtResource("15_fuc0k")

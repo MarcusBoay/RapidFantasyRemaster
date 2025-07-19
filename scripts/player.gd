@@ -67,17 +67,20 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# process movement and facing direction
 	if movement_phase == MOVEMENT_PHASE.IDLE:
+		# face some direction
 		for dir in dir_map:
 			if Input.is_action_pressed(dir_map[dir].name):
 				facing = dir
 				sprite.texture = dir_map[dir].texture
 
 		next_pos = self.position
+		# attempt to move in some direction
 		for dir in dir_map:
 			if not is_colliding_with_boundary(dir_map[dir].raycast) and Input.is_action_pressed(dir_map[dir].name):
 				movement_phase = MOVEMENT_PHASE.ONE
 				break
 
+		# get next position because we are now moving
 		if movement_phase != MOVEMENT_PHASE.IDLE:
 			get_next_pos()
 
@@ -120,7 +123,7 @@ func is_colliding_with_boundary(raycast: RayCast2D) -> bool:
 func has_custom_data_layer(raycast: RayCast2D, layer_name: String) -> bool:
 	if raycast.is_colliding():
 		var other = raycast.get_collider() as TileMapLayer
-		if not other and other.name != "NPCs": # yucky, but TOO BAD.
+		if not other or other.name != "NPCs": # yucky, but TOO BAD.
 			return false
 		var tile_data = get_tile_data(raycast)
 		var custom_data = tile_data.get_custom_data(layer_name)
