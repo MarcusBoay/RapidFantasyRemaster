@@ -70,7 +70,6 @@ class Stats:
         self.defense -= item_stats.defense
 
 
-
 enum Element {
     NORMAL,
     FIRE,
@@ -81,29 +80,27 @@ enum Element {
     DARK,
 }
 
-
-
 enum PlayerAttackType {
     BASIC,
     LIMIT,
     MAGIC,
 }
 
-class PlayerAttack:
-    var id: int
-    var name: String
-    var attack_type: PlayerAttackType
-    var element: Element
-    var mp_use: int
-    var tier: int
+# class PlayerAttack:
+#     var id: int
+#     var name: String
+#     var attack_type: PlayerAttackType
+#     var element: Element
+#     var mp_use: int
+#     var tier: int
 
-    func _init(p_id: int, p_name: String, p_attack_type: PlayerAttackType, p_element: Element, p_mp_use: int, p_tier: int):
-        self.id = p_id
-        self.name = p_name
-        self.attack_type = p_attack_type
-        self.element = p_element
-        self.mp_use = p_mp_use
-        self.tier = p_tier
+    # func _init(p_id: int, p_name: String, p_attack_type: PlayerAttackType, p_element: Element, p_mp_use: int, p_tier: int):
+    #     self.id = p_id
+    #     self.name = p_name
+    #     self.attack_type = p_attack_type
+    #     self.element = p_element
+    #     self.mp_use = p_mp_use
+    #     self.tier = p_tier
 
 # TODO PlayerAttackTable...
 

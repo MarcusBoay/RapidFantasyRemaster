@@ -83,6 +83,17 @@ func _physics_process(delta: float) -> void:
 			movement_phase = (movement_phase + 1) % MOVEMENT_PHASE.size() as MOVEMENT_PHASE
 			get_next_pos()
 
+		# this will execute once after player has finishes moving
+		if movement_phase == MOVEMENT_PHASE.IDLE:
+			print("attempting to spawn mob...")
+			# get area
+
+			# get area mobs
+
+			# get
+			# var roll =
+			# TODO
+
 func get_next_pos() -> void:
 	next_pos = self.position
 	for dir in dir_map:

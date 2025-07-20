@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerAttack" load_steps=2 format=3 uid="uid://dhk1y2qxxdpqo"]
+
+[ext_resource type="Script" uid="uid://iek1yg1f8q70" path="res://assets/resources/player_attacks/player_attack.gd" id="1_4qomi"]
+
+[resource]
+script = ExtResource("1_4qomi")
+id = 1
+name = "Sonic Spike"
+type = 1
+element = 0
+mp_use = 0
+tier = 1
