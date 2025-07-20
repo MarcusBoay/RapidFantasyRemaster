@@ -143,7 +143,7 @@
 		{
 			"id": 10,
 			"name": "Steel Sword",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -157,7 +157,7 @@
 		{
 			"id": 11,
 			"name": "Steel Shield",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 25,
 				"mp_max": 0,
@@ -171,7 +171,7 @@
 		{
 			"id": 12,
 			"name": "Amethyst Wand",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -185,7 +185,7 @@
 		{
 			"id": 13,
 			"name": "Doomblade",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -199,7 +199,7 @@
 		{
 			"id": 14,
 			"name": "Obsidian Barrier",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 50,
 				"mp_max": 0,
@@ -213,7 +213,7 @@
 		{
 			"id": 15,
 			"name": "Ancient Staff",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -227,7 +227,7 @@
 		{
 			"id": 16,
 			"name": "Cataclysm",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -241,7 +241,7 @@
 		{
 			"id": 17,
 			"name": "PeaceKeeper",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 75,
 				"mp_max": 0,
@@ -255,7 +255,7 @@
 		{
 			"id": 18,
 			"name": "Blind Justice",
-			"item_type": "Weapon",
+			"type": "Weapon",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -269,7 +269,7 @@
 		{
 			"id": 19,
 			"name": "Cactus Armor",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 10,
 				"mp_max": 0,
@@ -283,7 +283,7 @@
 		{
 			"id": 20,
 			"name": "Steel Armor",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 50,
 				"mp_max": 0,
@@ -297,7 +297,7 @@
 		{
 			"id": 21,
 			"name": "Enchanted Robes",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 5,
 				"mp_max": 0,
@@ -311,7 +311,7 @@
 		{
 			"id": 22,
 			"name": "Spiked Armor",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 20,
 				"mp_max": 0,
@@ -325,7 +325,7 @@
 		{
 			"id": 23,
 			"name": "Mythril Armor",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 100,
 				"mp_max": 0,
@@ -339,7 +339,7 @@
 		{
 			"id": 24,
 			"name": "Spectre Robes",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 10,
 				"mp_max": 0,
@@ -353,7 +353,7 @@
 		{
 			"id": 25,
 			"name": "Gladiator Armor",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 40,
 				"mp_max": 0,
@@ -367,7 +367,7 @@
 		{
 			"id": 26,
 			"name": "Titan Armor",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 200,
 				"mp_max": 0,
@@ -381,7 +381,7 @@
 		{
 			"id": 27,
 			"name": "Ethereal Robes",
-			"item_type": "Armor",
+			"type": "Armor",
 			"stats": {
 				"hp_max": 15,
 				"mp_max": 0,
@@ -395,7 +395,7 @@
 		{
 			"id": 28,
 			"name": "Power Ring",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -409,7 +409,7 @@
 		{
 			"id": 29,
 			"name": "Hard Bracelet",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 25,
 				"mp_max": 0,
@@ -423,7 +423,7 @@
 		{
 			"id": 30,
 			"name": "Wise Necklace",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -437,7 +437,7 @@
 		{
 			"id": 31,
 			"name": "Mighty Ring",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -451,7 +451,7 @@
 		{
 			"id": 32,
 			"name": "Resistant Bracelet",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 50,
 				"mp_max": 0,
@@ -465,7 +465,7 @@
 		{
 			"id": 33,
 			"name": "Sagacious Necklace",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -479,7 +479,7 @@
 		{
 			"id": 34,
 			"name": "Ultimate Ring",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,
@@ -493,7 +493,7 @@
 		{
 			"id": 35,
 			"name": "Ultimate Bracelet",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 75,
 				"mp_max": 0,
@@ -507,7 +507,7 @@
 		{
 			"id": 36,
 			"name": "Ultimate Necklace",
-			"item_type": "Accessory",
+			"type": "Accessory",
 			"stats": {
 				"hp_max": 0,
 				"mp_max": 0,

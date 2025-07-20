@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dld0o2n6njfs"]
+
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://assets/resources/items/item.gd" id="1_1hpr4"]
+[ext_resource type="Script" uid="uid://d2ch2srpkltys" path="res://assets/resources/items/item_stats.gd" id="2_e1aqp"]
+
+[sub_resource type="Resource" id="Resource_1hpr4"]
+script = ExtResource("2_e1aqp")
+hp_max = 20
+mp_max = 0
+hp = 0
+mp = 0
+strength = 20
+wisdom = 0
+defense = 6
+
+[resource]
+script = ExtResource("1_1hpr4")
+id = 22
+name = "Spiked Armor"
+item_type = 2
+stats = SubResource("Resource_1hpr4")

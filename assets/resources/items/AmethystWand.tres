@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://dgp4fon0bv7ko"]
+
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://assets/resources/items/item.gd" id="1_mcas7"]
+[ext_resource type="Script" uid="uid://d2ch2srpkltys" path="res://assets/resources/items/item_stats.gd" id="2_utk4x"]
+
+[sub_resource type="Resource" id="Resource_mcas7"]
+script = ExtResource("2_utk4x")
+hp_max = 0
+mp_max = 0
+hp = 0
+mp = 0
+strength = 2
+wisdom = 10
+defense = 0
+
+[resource]
+script = ExtResource("1_mcas7")
+id = 12
+name = "Amethyst Wand"
+item_type = 1
+stats = SubResource("Resource_mcas7")

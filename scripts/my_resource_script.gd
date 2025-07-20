@@ -3,8 +3,9 @@ extends Node2D
 class_name MyTools
 
 @export var player: PlayerCharacter
-@export_tool_button("Place player back", "Callable") var place_player_back = place_player_back_func
-@export_tool_button("Generate Player Attacks Resources", "Callable") var generate_player_attacks_tool = generate_player_attacks
+@export_tool_button("Place player back to start position", "Callable") var place_player_back = place_player_back_func
+# @export_tool_button("Generate Player Attacks Resources", "Callable") var generate_player_attacks_tool = generate_player_attacks
+@export_tool_button("Generate Items", "Callable") var generate_items_tool = generate_items
 
 func _process(_delta):
     if Engine.is_editor_hint():
@@ -25,6 +26,79 @@ func place_player_back_func():
         # starting position of player in the overworld
         player.position.x = 984.0
         player.position.y = 10080.0
+
+func generate_enemies():
+    var file = FileAccess.open("res://assets/tables/items.json", FileAccess.READ)
+    var json_str = file.get_as_text()
+    var data = JSON.parse_string(json_str)
+    # print(data)
+    # return
+    for d in data["items"]:
+        var file_name = d["name"]
+        file_name = file_name.replace(" ", "") # get rid of spaces for the file name.
+        var res = Item.new()
+        res.id = d["id"] as int
+        res.name = d["name"]
+        if d["type"] == "Consumable":
+            res.item_type = Globals.ItemType.CONSUMABLE
+        if d["type"] == "Weapon":
+            res.item_type = Globals.ItemType.WEAPON
+        if d["type"] == "Armor":
+            res.item_type = Globals.ItemType.ARMOR
+        if d["type"] == "Accessory":
+            res.item_type = Globals.ItemType.ACCESSORY
+        var stats = ItemStats.new()
+        stats.hp_max = d["stats"]["hp_max"]
+        stats.mp_max = d["stats"]["mp_max"]
+        stats.hp = d["stats"]["hp"]
+        stats.mp = d["stats"]["mp"]
+        stats.strength = d["stats"]["strength"]
+        stats.wisdom = d["stats"]["wisdom"]
+        stats.defense = d["stats"]["defense"]
+        res.stats = stats
+        print("saving...")
+        print(d)
+        var save_res = ResourceSaver.save(res, 'res://assets/resources/items/'+file_name+'.tres')
+        # if save_res != OK:
+        print(save_res)
+
+func generate_items():
+    if true:
+        return
+    # no longer needed :)
+    var file = FileAccess.open("res://assets/tables/items.json", FileAccess.READ)
+    var json_str = file.get_as_text()
+    var data = JSON.parse_string(json_str)
+    # print(data)
+    # return
+    for d in data["items"]:
+        var file_name = d["name"]
+        file_name = file_name.replace(" ", "") # get rid of spaces for the file name.
+        var res = Item.new()
+        res.id = d["id"] as int
+        res.name = d["name"]
+        if d["type"] == "Consumable":
+            res.item_type = Globals.ItemType.CONSUMABLE
+        if d["type"] == "Weapon":
+            res.item_type = Globals.ItemType.WEAPON
+        if d["type"] == "Armor":
+            res.item_type = Globals.ItemType.ARMOR
+        if d["type"] == "Accessory":
+            res.item_type = Globals.ItemType.ACCESSORY
+        var stats = ItemStats.new()
+        stats.hp_max = d["stats"]["hp_max"]
+        stats.mp_max = d["stats"]["mp_max"]
+        stats.hp = d["stats"]["hp"]
+        stats.mp = d["stats"]["mp"]
+        stats.strength = d["stats"]["strength"]
+        stats.wisdom = d["stats"]["wisdom"]
+        stats.defense = d["stats"]["defense"]
+        res.stats = stats
+        print("saving...")
+        print(d)
+        var save_res = ResourceSaver.save(res, 'res://assets/resources/items/'+file_name+'.tres')
+        # if save_res != OK:
+        print(save_res)
 
 func generate_player_attacks():
     if true:

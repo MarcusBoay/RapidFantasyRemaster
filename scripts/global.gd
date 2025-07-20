@@ -142,49 +142,49 @@ enum ItemType {
     ACCESSORY,
 }
 
-class ItemStats:
-    var hp_max: int
-    var mp_max: int
-    var hp: int
-    var mp: int
-    var strength: int
-    var wisdom: int
-    var defense: int
+# class ItemStats:
+#     var hp_max: int
+#     var mp_max: int
+#     var hp: int
+#     var mp: int
+#     var strength: int
+#     var wisdom: int
+#     var defense: int
 
-    static func new_potion(p_hp: int, p_mp: int) -> ItemStats:
-        var item_stats = ItemStats.new()
-        item_stats.hp = p_hp
-        item_stats.mp = p_mp
-        return item_stats
+#     static func new_potion(p_hp: int, p_mp: int) -> ItemStats:
+#         var item_stats = ItemStats.new()
+#         item_stats.hp = p_hp
+#         item_stats.mp = p_mp
+#         return item_stats
 
-    static func new_equip(p_hp_max: int, p_mp_max: int, p_strength: int, p_wisdom: int, p_defense: int) -> ItemStats:
-        var item_stats = ItemStats.new()
-        item_stats.hp_max = p_hp_max
-        item_stats.mp_max = p_mp_max
-        item_stats.strength = p_strength
-        item_stats.wisdom = p_wisdom
-        item_stats.defense = p_defense
-        return item_stats
+#     static func new_equip(p_hp_max: int, p_mp_max: int, p_strength: int, p_wisdom: int, p_defense: int) -> ItemStats:
+#         var item_stats = ItemStats.new()
+#         item_stats.hp_max = p_hp_max
+#         item_stats.mp_max = p_mp_max
+#         item_stats.strength = p_strength
+#         item_stats.wisdom = p_wisdom
+#         item_stats.defense = p_defense
+#         return item_stats
 
-    func get_equip_stats_string() -> String:
-        var stats_string = ""
-        stats_string += "Max HP: %d, Max MP: %d" % [self.hp_max, self.mp_max] + "\n"
-        stats_string += "Strength: %d" % self.strength + "\n"
-        stats_string += "Wisdom: %d" % self.wisdom + "\n"
-        stats_string += "Defense: %d" % self.defense
-        return stats_string
+#     func get_equip_stats_string() -> String:
+#         var stats_string = ""
+#         stats_string += "Max HP: %d, Max MP: %d" % [self.hp_max, self.mp_max] + "\n"
+#         stats_string += "Strength: %d" % self.strength + "\n"
+#         stats_string += "Wisdom: %d" % self.wisdom + "\n"
+#         stats_string += "Defense: %d" % self.defense
+#         return stats_string
 
-class Item:
-    var id: int
-    var name: String
-    var item_type: ItemType
-    var stats: ItemStats
+# class Item:
+#     var id: int
+#     var name: String
+#     var item_type: ItemType
+#     var stats: ItemStats
 
-    func _init(p_id: int, p_name: String, p_item_type: ItemType, p_stats: ItemStats):
-        id = p_id
-        name = p_name
-        item_type = p_item_type
-        stats = p_stats
+#     func _init(p_id: int, p_name: String, p_item_type: ItemType, p_stats: ItemStats):
+#         id = p_id
+#         name = p_name
+#         item_type = p_item_type
+#         stats = p_stats
 
 
 

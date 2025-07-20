@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bpjlkaab6tlgk"]
+
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://assets/resources/items/item.gd" id="1_fe4yt"]
+[ext_resource type="Script" uid="uid://d2ch2srpkltys" path="res://assets/resources/items/item_stats.gd" id="2_55kis"]
+
+[sub_resource type="Resource" id="Resource_fe4yt"]
+script = ExtResource("2_55kis")
+hp_max = 0
+mp_max = 0
+hp = 0
+mp = 240
+strength = 0
+wisdom = 0
+defense = 0
+
+[resource]
+script = ExtResource("1_fe4yt")
+id = 9
+name = "Blue Potion V"
+item_type = 0
+stats = SubResource("Resource_fe4yt")
