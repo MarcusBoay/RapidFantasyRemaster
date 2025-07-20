@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=25 format=3 uid="uid://dea1swa31rlem"]
+
+[ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://assets/resources/enemies/enemy_attack.gd" id="1_7jc3s"]
+[ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://assets/resources/enemies/enemy_stats.gd" id="2_1rxr0"]
+[ext_resource type="Script" uid="uid://m418ptflm4d3" path="res://assets/resources/enemies/loot_table.gd" id="3_2eusp"]
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://assets/resources/items/item.gd" id="4_7x5wo"]
+[ext_resource type="Resource" uid="uid://b3i6lrd3oay3" path="res://assets/resources/items/RedPotionIV.tres" id="5_owvap"]
+[ext_resource type="Resource" uid="uid://bmn8j6ehpfeh6" path="res://assets/resources/items/BluePotionIV.tres" id="6_16ytp"]
+[ext_resource type="Resource" uid="uid://cl28df42riseq" path="res://assets/resources/items/Doomblade.tres" id="7_dxdu2"]
+[ext_resource type="Resource" uid="uid://copikpe7s51cy" path="res://assets/resources/items/ObsidianBarrier.tres" id="8_iegm2"]
+[ext_resource type="Resource" uid="uid://jru2713wvfph" path="res://assets/resources/items/AncientStaff.tres" id="9_qevvn"]
+[ext_resource type="Resource" uid="uid://dld0o2n6njfs" path="res://assets/resources/items/SpikedArmor.tres" id="10_ljxat"]
+[ext_resource type="Resource" uid="uid://umcdlvxu8hp6" path="res://assets/resources/items/MythrilArmor.tres" id="11_4407w"]
+[ext_resource type="Resource" uid="uid://cmpa3wfppuw0t" path="res://assets/resources/items/SpectreRobes.tres" id="12_qqow8"]
+[ext_resource type="Resource" uid="uid://c75swd0ry8ghc" path="res://assets/resources/items/MightyRing.tres" id="13_l10g0"]
+[ext_resource type="Resource" uid="uid://dayxgnn41rg4h" path="res://assets/resources/items/ResistantBracelet.tres" id="14_6tly5"]
+[ext_resource type="Resource" uid="uid://c50wd8g3jipkk" path="res://assets/resources/items/SagaciousNecklace.tres" id="15_hxmmm"]
+[ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="16_g0k7t"]
+[ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://assets/resources/common/stats.gd" id="17_outxy"]
+
+[sub_resource type="Resource" id="Resource_7jc3s"]
+script = ExtResource("1_7jc3s")
+name = "Bite"
+damage_modifier = 2.0
+mp_use = 0
+attack_type = 0
+
+[sub_resource type="Resource" id="Resource_1rxr0"]
+script = ExtResource("1_7jc3s")
+name = "Gnaw"
+damage_modifier = 1.5
+mp_use = 0
+attack_type = 0
+
+[sub_resource type="Resource" id="Resource_2eusp"]
+script = ExtResource("1_7jc3s")
+name = "Acornucopia of pain"
+damage_modifier = 2.0
+mp_use = 5
+attack_type = 1
+
+[sub_resource type="Resource" id="Resource_7x5wo"]
+script = ExtResource("2_1rxr0")
+id = 7
+name = "Squirrel"
+description = "It's nuts."
+element = 0
+next_phase = -1
+
+[sub_resource type="Resource" id="Resource_owvap"]
+script = ExtResource("3_2eusp")
+no_drop_weight = 10
+items = Dictionary[ExtResource("4_7x5wo"), int]({
+ExtResource("5_owvap"): 9,
+ExtResource("6_16ytp"): 6
+})
+
+[sub_resource type="Resource" id="Resource_16ytp"]
+script = ExtResource("3_2eusp")
+no_drop_weight = 13
+items = Dictionary[ExtResource("4_7x5wo"), int]({
+ExtResource("7_dxdu2"): 1,
+ExtResource("8_iegm2"): 1,
+ExtResource("9_qevvn"): 1,
+ExtResource("10_ljxat"): 1,
+ExtResource("11_4407w"): 1,
+ExtResource("12_qqow8"): 1,
+ExtResource("13_l10g0"): 1,
+ExtResource("14_6tly5"): 1,
+ExtResource("15_hxmmm"): 1
+})
+
+[sub_resource type="Resource" id="Resource_dxdu2"]
+script = ExtResource("17_outxy")
+hp_max = 304
+mp_max = 20
+hp = 304
+mp = 20
+strength = 52
+wisdom = 40
+defense = 25
+level = 4
+experience = 4500
+gold = 200
+
+[resource]
+script = ExtResource("16_g0k7t")
+stats = SubResource("Resource_dxdu2")
+enemy_stats = SubResource("Resource_7x5wo")
+attacks = Array[ExtResource("1_7jc3s")]([SubResource("Resource_7jc3s"), SubResource("Resource_1rxr0"), SubResource("Resource_2eusp")])
+loot_table = Array[ExtResource("3_2eusp")]([SubResource("Resource_owvap"), SubResource("Resource_16ytp")])

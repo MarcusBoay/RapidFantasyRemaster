@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=25 format=3 uid="uid://bqk45ndsicuca"]
+
+[ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://assets/resources/enemies/enemy_attack.gd" id="1_k6qdl"]
+[ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://assets/resources/enemies/enemy_stats.gd" id="2_cyu5s"]
+[ext_resource type="Script" uid="uid://m418ptflm4d3" path="res://assets/resources/enemies/loot_table.gd" id="3_nb32u"]
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://assets/resources/items/item.gd" id="4_vnsrb"]
+[ext_resource type="Resource" uid="uid://c8un6p7djtq7b" path="res://assets/resources/items/RedPotionIII.tres" id="5_e46rr"]
+[ext_resource type="Resource" uid="uid://dd1fylp5ecmxx" path="res://assets/resources/items/BluePotionIII.tres" id="6_cvx4s"]
+[ext_resource type="Resource" uid="uid://cl28df42riseq" path="res://assets/resources/items/Doomblade.tres" id="7_5nvw0"]
+[ext_resource type="Resource" uid="uid://copikpe7s51cy" path="res://assets/resources/items/ObsidianBarrier.tres" id="8_bxg8b"]
+[ext_resource type="Resource" uid="uid://jru2713wvfph" path="res://assets/resources/items/AncientStaff.tres" id="9_1d0q3"]
+[ext_resource type="Resource" uid="uid://dld0o2n6njfs" path="res://assets/resources/items/SpikedArmor.tres" id="10_w0i1x"]
+[ext_resource type="Resource" uid="uid://umcdlvxu8hp6" path="res://assets/resources/items/MythrilArmor.tres" id="11_ju0dc"]
+[ext_resource type="Resource" uid="uid://cmpa3wfppuw0t" path="res://assets/resources/items/SpectreRobes.tres" id="12_j42td"]
+[ext_resource type="Resource" uid="uid://c75swd0ry8ghc" path="res://assets/resources/items/MightyRing.tres" id="13_d7r0n"]
+[ext_resource type="Resource" uid="uid://dayxgnn41rg4h" path="res://assets/resources/items/ResistantBracelet.tres" id="14_yg4nw"]
+[ext_resource type="Resource" uid="uid://c50wd8g3jipkk" path="res://assets/resources/items/SagaciousNecklace.tres" id="15_vvfcc"]
+[ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="16_6orj4"]
+[ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://assets/resources/common/stats.gd" id="17_wlf13"]
+
+[sub_resource type="Resource" id="Resource_k6qdl"]
+script = ExtResource("1_k6qdl")
+name = "Drop The Beat"
+damage_modifier = 2.0
+mp_use = 7
+attack_type = 1
+
+[sub_resource type="Resource" id="Resource_cyu5s"]
+script = ExtResource("1_k6qdl")
+name = "Lay A Verse"
+damage_modifier = 1.8
+mp_use = 4
+attack_type = 1
+
+[sub_resource type="Resource" id="Resource_nb32u"]
+script = ExtResource("1_k6qdl")
+name = "Tangle"
+damage_modifier = 2.0
+mp_use = 0
+attack_type = 0
+
+[sub_resource type="Resource" id="Resource_vnsrb"]
+script = ExtResource("2_cyu5s")
+id = 6
+name = "Mixtape"
+description = "An underappreciated mixtape, spits straight fire."
+element = 1
+next_phase = -1
+
+[sub_resource type="Resource" id="Resource_e46rr"]
+script = ExtResource("3_nb32u")
+no_drop_weight = 10
+items = Dictionary[ExtResource("4_vnsrb"), int]({
+ExtResource("5_e46rr"): 9,
+ExtResource("6_cvx4s"): 6
+})
+
+[sub_resource type="Resource" id="Resource_cvx4s"]
+script = ExtResource("3_nb32u")
+no_drop_weight = 13
+items = Dictionary[ExtResource("4_vnsrb"), int]({
+ExtResource("7_5nvw0"): 1,
+ExtResource("8_bxg8b"): 1,
+ExtResource("9_1d0q3"): 1,
+ExtResource("10_w0i1x"): 1,
+ExtResource("11_ju0dc"): 1,
+ExtResource("12_j42td"): 1,
+ExtResource("13_d7r0n"): 1,
+ExtResource("14_yg4nw"): 1,
+ExtResource("15_vvfcc"): 1
+})
+
+[sub_resource type="Resource" id="Resource_5nvw0"]
+script = ExtResource("17_wlf13")
+hp_max = 135
+mp_max = 20
+hp = 135
+mp = 20
+strength = 20
+wisdom = 28
+defense = 14
+level = 3
+experience = 3200
+gold = 150
+
+[resource]
+script = ExtResource("16_6orj4")
+stats = SubResource("Resource_5nvw0")
+enemy_stats = SubResource("Resource_vnsrb")
+attacks = Array[ExtResource("1_k6qdl")]([SubResource("Resource_k6qdl"), SubResource("Resource_cyu5s"), SubResource("Resource_nb32u")])
+loot_table = Array[ExtResource("3_nb32u")]([SubResource("Resource_e46rr"), SubResource("Resource_cvx4s")])

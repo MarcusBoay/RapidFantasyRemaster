@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://1tcdnjindq2l"]
+
+[ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://assets/resources/enemies/enemy_attack.gd" id="1_qu6hw"]
+[ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://assets/resources/enemies/enemy_stats.gd" id="2_fgj4n"]
+[ext_resource type="Script" uid="uid://m418ptflm4d3" path="res://assets/resources/enemies/loot_table.gd" id="3_jkbrr"]
+[ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="4_y28q4"]
+[ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://assets/resources/common/stats.gd" id="5_ctw2a"]
+
+[sub_resource type="Resource" id="Resource_rraff"]
+script = ExtResource("1_qu6hw")
+name = "Wing"
+damage_modifier = 2.0
+mp_use = 0
+attack_type = 0
+
+[sub_resource type="Resource" id="Resource_eyoah"]
+script = ExtResource("1_qu6hw")
+name = "Ignition"
+damage_modifier = 2.0
+mp_use = 5
+attack_type = 1
+
+[sub_resource type="Resource" id="Resource_m3j1m"]
+script = ExtResource("1_qu6hw")
+name = "Peck"
+damage_modifier = 2.2
+mp_use = 0
+attack_type = 0
+
+[sub_resource type="Resource" id="Resource_bgg2g"]
+script = ExtResource("1_qu6hw")
+name = "Flamethrower"
+damage_modifier = 2.2
+mp_use = 12
+attack_type = 1
+
+[sub_resource type="Resource" id="Resource_eqjnc"]
+script = ExtResource("2_fgj4n")
+id = 11
+name = "Emperor Penguin I"
+description = ""
+element = 1
+next_phase = 12
+
+[sub_resource type="Resource" id="Resource_3bgme"]
+script = ExtResource("5_ctw2a")
+hp_max = 576
+mp_max = 100
+hp = 576
+mp = 100
+strength = 92
+wisdom = 117
+defense = 45
+level = 5
+experience = 0
+gold = 0
+
+[resource]
+script = ExtResource("4_y28q4")
+stats = SubResource("Resource_3bgme")
+enemy_stats = SubResource("Resource_eqjnc")
+attacks = Array[ExtResource("1_qu6hw")]([SubResource("Resource_rraff"), SubResource("Resource_eyoah"), SubResource("Resource_m3j1m"), SubResource("Resource_bgg2g")])
+loot_table = Array[ExtResource("3_jkbrr")]([])

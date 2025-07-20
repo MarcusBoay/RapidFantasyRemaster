@@ -39,37 +39,6 @@ class Player:
         self.limit = 0
         self.area = 0
 
-class Stats:
-    var hp_max: int
-    var mp_max: int
-    var hp: int
-    var mp: int
-    var strength: int
-    var wisdom: int
-    var defense: int
-    var level: int
-    var experience: int
-    var gold: int
-
-    func add_item_stats(item_stats: ItemStats):
-        self.hp_max += item_stats.hp_max
-        self.mp_max += item_stats.mp_max
-        self.hp = min(self.hp + item_stats.hp, self.hp_max)
-        self.mp = min(self.mp + item_stats.mp, self.mp_max)
-        self.strength += item_stats.strength
-        self.wisdom += item_stats.wisdom
-        self.defense += item_stats.defense
-
-    func subtract_item_stats(item_stats: ItemStats):
-        self.hp_max -= item_stats.hp_max
-        self.mp_max -= item_stats.mp_max
-        self.hp = max(self.hp - item_stats.hp, 0)
-        self.mp = max(self.mp - item_stats.mp, 0)
-        self.strength -= item_stats.strength
-        self.wisdom -= item_stats.wisdom
-        self.defense -= item_stats.defense
-
-
 enum Element {
     NORMAL,
     FIRE,
@@ -188,29 +157,29 @@ enum ItemType {
 
 
 
-class TupleInt2:
-    var first: int
-    var second: int
+# class TupleInt2:
+#     var first: int
+#     var second: int
 
-    func _init(p_first: int, p_second: int):
-        self.first = p_first
-        self.second = p_second
+#     func _init(p_first: int, p_second: int):
+#         self.first = p_first
+#         self.second = p_second
 
-class LootTable:
-    var no_drop_weight: int
-    var items: Array[TupleInt2] # item id, weight
+# class LootTable:
+#     var no_drop_weight: int
+#     var items: Array[TupleInt2] # item id, weight
 
-    # Returns item id for a roll, otherwise, returns -1 (no item)
-    func get_item_id() -> int:
-        var roll = randi_range(0, get_total_weight())
-        var cur_weight = no_drop_weight
+#     # Returns item id for a roll, otherwise, returns -1 (no item)
+#     func get_item_id() -> int:
+#         var roll = randi_range(0, get_total_weight())
+#         var cur_weight = no_drop_weight
 
-        for item in items:
-            if roll >= cur_weight and roll < cur_weight + item.second:
-                return item.first
-            cur_weight += item.second
+#         for item in items:
+#             if roll >= cur_weight and roll < cur_weight + item.second:
+#                 return item.first
+#             cur_weight += item.second
 
-        return -1
+#         return -1
 
-    func get_total_weight() -> int:
-        return no_drop_weight + items.reduce(func(accum, item): return accum + item.second)
+#     func get_total_weight() -> int:
+#         return no_drop_weight + items.reduce(func(accum, item): return accum + item.second)

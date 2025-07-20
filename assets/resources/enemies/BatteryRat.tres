@@ -1,0 +1,91 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=25 format=3 uid="uid://duejvarh235ur"]
+
+[ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://assets/resources/enemies/enemy_attack.gd" id="1_ojewt"]
+[ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://assets/resources/enemies/enemy_stats.gd" id="2_b1r01"]
+[ext_resource type="Script" uid="uid://m418ptflm4d3" path="res://assets/resources/enemies/loot_table.gd" id="3_6absi"]
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://assets/resources/items/item.gd" id="4_fl7pv"]
+[ext_resource type="Resource" uid="uid://dylusttqgs0kv" path="res://assets/resources/items/RedPotionV.tres" id="5_3321y"]
+[ext_resource type="Resource" uid="uid://bpjlkaab6tlgk" path="res://assets/resources/items/BluePotionV.tres" id="6_dwtxd"]
+[ext_resource type="Resource" uid="uid://dnl3gswhip3yt" path="res://assets/resources/items/Cataclysm.tres" id="7_8jdva"]
+[ext_resource type="Resource" uid="uid://cma6s8qeosnys" path="res://assets/resources/items/PeaceKeeper.tres" id="8_ed5ci"]
+[ext_resource type="Resource" uid="uid://i0cqhlegfbta" path="res://assets/resources/items/BlindJustice.tres" id="9_738o7"]
+[ext_resource type="Resource" uid="uid://casg5kclpg7co" path="res://assets/resources/items/GladiatorArmor.tres" id="10_x8edx"]
+[ext_resource type="Resource" uid="uid://c1asnrcg1bnms" path="res://assets/resources/items/TitanArmor.tres" id="11_b1yrh"]
+[ext_resource type="Resource" uid="uid://ku535byh8la4" path="res://assets/resources/items/EtherealRobes.tres" id="12_3x2vw"]
+[ext_resource type="Resource" uid="uid://bmdf316xr4c1u" path="res://assets/resources/items/UltimateRing.tres" id="13_c0b7i"]
+[ext_resource type="Resource" uid="uid://bkby23jra1c5r" path="res://assets/resources/items/UltimateBracelet.tres" id="14_rfc8w"]
+[ext_resource type="Resource" uid="uid://uixygvrqrm11" path="res://assets/resources/items/UltimateNecklace.tres" id="15_xwus6"]
+[ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="16_1kif5"]
+[ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://assets/resources/common/stats.gd" id="17_i5208"]
+
+[sub_resource type="Resource" id="Resource_ojewt"]
+script = ExtResource("1_ojewt")
+name = "Thunder Punch"
+damage_modifier = 2.0
+mp_use = 0
+attack_type = 0
+
+[sub_resource type="Resource" id="Resource_b1r01"]
+script = ExtResource("1_ojewt")
+name = "Thunder Shock"
+damage_modifier = 2.0
+mp_use = 10
+attack_type = 1
+
+[sub_resource type="Resource" id="Resource_6absi"]
+script = ExtResource("1_ojewt")
+name = "Thunder Wave"
+damage_modifier = 1.8
+mp_use = 5
+attack_type = 1
+
+[sub_resource type="Resource" id="Resource_fl7pv"]
+script = ExtResource("2_b1r01")
+id = 9
+name = "Battery Rat"
+description = "This enemy seems familiar..."
+element = 3
+next_phase = -1
+
+[sub_resource type="Resource" id="Resource_3321y"]
+script = ExtResource("3_6absi")
+no_drop_weight = 10
+items = Dictionary[ExtResource("4_fl7pv"), int]({
+ExtResource("5_3321y"): 9,
+ExtResource("6_dwtxd"): 6
+})
+
+[sub_resource type="Resource" id="Resource_dwtxd"]
+script = ExtResource("3_6absi")
+no_drop_weight = 13
+items = Dictionary[ExtResource("4_fl7pv"), int]({
+ExtResource("7_8jdva"): 1,
+ExtResource("8_ed5ci"): 1,
+ExtResource("9_738o7"): 1,
+ExtResource("10_x8edx"): 1,
+ExtResource("11_b1yrh"): 1,
+ExtResource("12_3x2vw"): 1,
+ExtResource("13_c0b7i"): 1,
+ExtResource("14_rfc8w"): 1,
+ExtResource("15_xwus6"): 1
+})
+
+[sub_resource type="Resource" id="Resource_8jdva"]
+script = ExtResource("17_i5208")
+hp_max = 513
+mp_max = 30
+hp = 513
+mp = 30
+strength = 70
+wisdom = 70
+defense = 36
+level = 5
+experience = 12500
+gold = 300
+
+[resource]
+script = ExtResource("16_1kif5")
+stats = SubResource("Resource_8jdva")
+enemy_stats = SubResource("Resource_fl7pv")
+attacks = Array[ExtResource("1_ojewt")]([SubResource("Resource_ojewt"), SubResource("Resource_b1r01"), SubResource("Resource_6absi")])
+loot_table = Array[ExtResource("3_6absi")]([SubResource("Resource_3321y"), SubResource("Resource_dwtxd")])
