@@ -6,7 +6,7 @@ class_name MyTools
 @export_tool_button("Place player back to start position", "Callable") var place_player_back = place_player_back_func
 # @export_tool_button("Generate Player Attacks Resources", "Callable") var generate_player_attacks_tool = generate_player_attacks
 # @export_tool_button("Generate Items", "Callable") var generate_items_tool = generate_items
-@export_tool_button("Generate Enemies", "Callable") var generate_enemies_tool = generate_enemies
+# @export_tool_button("Generate Enemies", "Callable") var generate_enemies_tool = generate_enemies
 
 func _process(_delta):
     if Engine.is_editor_hint():
@@ -28,7 +28,15 @@ func place_player_back_func():
         player.position.x = 984.0
         player.position.y = 10080.0
 
+
+
+
+### Functions to import JSON data as resources
+
 func generate_enemies():
+    if true:
+        return
+    # no longer needed :)
     var file = FileAccess.open("res://assets/tables/enemies.json", FileAccess.READ)
     var json_str = file.get_as_text()
     var data = JSON.parse_string(json_str)
