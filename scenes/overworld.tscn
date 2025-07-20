@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://c2b8paallkb"]
+[gd_scene load_steps=47 format=4 uid="uid://c2b8paallkb"]
 
 [ext_resource type="Texture2D" uid="uid://d4eyufdu7pdmh" path="res://assets/images_32x32/area0.png" id="1_u2ss0"]
 [ext_resource type="Texture2D" uid="uid://daue6mbg8nf37" path="res://assets/images_32x32/area1.png" id="2_3gvrs"]
@@ -16,6 +16,18 @@
 [ext_resource type="Texture2D" uid="uid://bbxa6ff2q1uqi" path="res://assets/images_32x32/npc5.png" id="11_ha27p"]
 [ext_resource type="Texture2D" uid="uid://7vprstmkc1cv" path="res://assets/images_32x32/black.png" id="12_rep30"]
 [ext_resource type="Script" uid="uid://do8kvdxg4upl5" path="res://scripts/my_resource_script.gd" id="15_fuc0k"]
+[ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="16_pss1p"]
+[ext_resource type="Resource" uid="uid://be5ecl6cm8cfr" path="res://assets/resources/enemies/Slime.tres" id="17_ha27p"]
+[ext_resource type="Resource" uid="uid://dopu0xtmlwdbj" path="res://assets/resources/enemies/Rocky.tres" id="18_2jxyl"]
+[ext_resource type="Resource" uid="uid://wifr8ts1jvw1" path="res://assets/resources/enemies/Mushroom.tres" id="19_5rnle"]
+[ext_resource type="Resource" uid="uid://bg3x5nklatro6" path="res://assets/resources/enemies/Duck.tres" id="20_gjn0k"]
+[ext_resource type="Resource" uid="uid://c78rofbnmdgks" path="res://assets/resources/enemies/TripleAbattery.tres" id="21_hcmvr"]
+[ext_resource type="Resource" uid="uid://vajah05wd33t" path="res://assets/resources/enemies/Skeleton.tres" id="22_wf4j4"]
+[ext_resource type="Resource" uid="uid://bqk45ndsicuca" path="res://assets/resources/enemies/Mixtape.tres" id="23_yqb1n"]
+[ext_resource type="Resource" uid="uid://dea1swa31rlem" path="res://assets/resources/enemies/Squirrel.tres" id="24_cxwv3"]
+[ext_resource type="Resource" uid="uid://d3tmn5fig8x2o" path="res://assets/resources/enemies/Book.tres" id="25_bt1bw"]
+[ext_resource type="Resource" uid="uid://coatc0g26y3ml" path="res://assets/resources/enemies/Penguin.tres" id="26_bt1bw"]
+[ext_resource type="Resource" uid="uid://duejvarh235ur" path="res://assets/resources/enemies/BatteryRat.tres" id="27_8vjs8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ha27p"]
 texture = ExtResource("12_rep30")
@@ -1064,11 +1076,15 @@ custom_data_layer_0/name = "Dialog"
 custom_data_layer_0/type = 4
 custom_data_layer_1/name = "MobID"
 custom_data_layer_1/type = 2
+custom_data_layer_2/name = ""
+custom_data_layer_2/type = 25
 sources/0 = SubResource("TileSetAtlasSource_2jxyl")
 sources/1 = SubResource("TileSetAtlasSource_5rnle")
 sources/2 = SubResource("TileSetAtlasSource_gjn0k")
 sources/3 = SubResource("TileSetAtlasSource_hcmvr")
 sources/4 = SubResource("TileSetAtlasSource_qkc01")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rep30"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvrs"]
 size = Vector2(34, 34)
@@ -1098,6 +1114,9 @@ position = Vector2(1000, 10000)
 tile_map_data = PackedByteArray("AAABAAAABAAAAAAAAAD8/wEAAgAAAAAAAAD6/wEAAwAAAAAAAAA0AOv/AAAAAAAAAAAwAOj/AQAAAAAAAAAxAO//AQAAAAAAAAAyAO//AQAAAAAAAAA1AOn/AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_wf4j4")
 use_kinematic_bodies = true
+
+[node name="Sprite2D" type="Sprite2D" parent="TileMapLayerHolder"]
+texture = SubResource("CompressedTexture2D_rep30")
 
 [node name="Player" type="Area2D" parent="." groups=["player"]]
 position = Vector2(984, 10080)
@@ -1145,6 +1164,7 @@ shape = SubResource("RectangleShape2D_fkyvp")
 [node name="Area1" type="Node2D" parent="."]
 position = Vector2(1000, 9680)
 script = ExtResource("5_eab5i")
+enemies = Array[ExtResource("16_pss1p")]([ExtResource("17_ha27p"), ExtResource("18_2jxyl"), ExtResource("19_5rnle")])
 
 [node name="Camera2D" type="Camera2D" parent="Area1"]
 
@@ -1157,6 +1177,7 @@ shape = SubResource("RectangleShape2D_fkyvp")
 [node name="Area2" type="Node2D" parent="."]
 position = Vector2(1000, 9360)
 script = ExtResource("5_eab5i")
+enemies = Array[ExtResource("16_pss1p")]([ExtResource("20_gjn0k"), ExtResource("21_hcmvr")])
 
 [node name="Camera2D" type="Camera2D" parent="Area2"]
 
@@ -1169,6 +1190,7 @@ shape = SubResource("RectangleShape2D_fkyvp")
 [node name="Area3" type="Node2D" parent="."]
 position = Vector2(1512, 9360)
 script = ExtResource("5_eab5i")
+enemies = Array[ExtResource("16_pss1p")]([ExtResource("22_wf4j4"), ExtResource("23_yqb1n")])
 
 [node name="Camera2D" type="Camera2D" parent="Area3"]
 
@@ -1181,6 +1203,7 @@ shape = SubResource("RectangleShape2D_fkyvp")
 [node name="Area4" type="Node2D" parent="."]
 position = Vector2(2024, 9360)
 script = ExtResource("5_eab5i")
+enemies = Array[ExtResource("16_pss1p")]([ExtResource("24_cxwv3"), ExtResource("25_bt1bw")])
 
 [node name="Camera2D" type="Camera2D" parent="Area4"]
 
@@ -1193,6 +1216,7 @@ shape = SubResource("RectangleShape2D_fkyvp")
 [node name="Area5" type="Node2D" parent="."]
 position = Vector2(2536, 9360)
 script = ExtResource("5_eab5i")
+enemies = Array[ExtResource("16_pss1p")]([ExtResource("26_bt1bw"), ExtResource("27_8vjs8")])
 
 [node name="Camera2D" type="Camera2D" parent="Area5"]
 

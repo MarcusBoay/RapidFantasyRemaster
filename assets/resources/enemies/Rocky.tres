@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=23 format=3 uid="uid://dopu0xtmlwdbj"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=24 format=3 uid="uid://dopu0xtmlwdbj"]
 
 [ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://assets/resources/enemies/enemy_attack.gd" id="1_5ev2d"]
 [ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://assets/resources/enemies/enemy_stats.gd" id="2_c585j"]
@@ -17,6 +17,7 @@
 [ext_resource type="Resource" uid="uid://dfhapcwg1c1a1" path="res://assets/resources/items/WiseNecklace.tres" id="15_thtbn"]
 [ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="16_hky3d"]
 [ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://assets/resources/common/stats.gd" id="17_8263g"]
+[ext_resource type="Texture2D" uid="uid://cvb2r7sw4421p" path="res://assets/images_32x32/enemy2.png" id="17_c585j"]
 
 [sub_resource type="Resource" id="Resource_5ev2d"]
 script = ExtResource("1_5ev2d")
@@ -68,6 +69,7 @@ defense = 8
 level = 1
 experience = 200
 gold = 70
+battle_sprite = ExtResource("17_c585j")
 
 [resource]
 script = ExtResource("16_hky3d")

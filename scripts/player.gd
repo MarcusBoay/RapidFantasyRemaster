@@ -1,5 +1,5 @@
-extends Area2D
 class_name PlayerCharacter
+extends Area2D
 
 enum FACING_DIRECTION {
 	UP,
@@ -26,6 +26,10 @@ var up_texture = preload("res://assets/images_32x32/player_up.png")
 var down_texture = preload("res://assets/images_32x32/player_down.png")
 var left_texture = preload("res://assets/images_32x32/player_left.png")
 var right_texture = preload("res://assets/images_32x32/player_right.png")
+
+# probably better to put this into some independent node...
+var enemy_spawn_chance_weight: int = 10 # higher weight == lower chance of enemy spawns
+
 
 var dir_map: Dictionary[FACING_DIRECTION, DirectionStuff] = {}
 
@@ -85,14 +89,21 @@ func _physics_process(delta: float) -> void:
 
 		# this will execute once after player has finishes moving
 		if movement_phase == MOVEMENT_PHASE.IDLE:
-			print("attempting to spawn mob...")
-			# get area
+			try_spawning_enemy()
 
-			# get area mobs
-
-			# get
-			# var roll =
-			# TODO
+# kinda yucky to have this in the player script...
+# probably better to have some enemy spawner node to do this...
+func try_spawning_enemy() -> void:
+	print("attempting to spawn mob...")
+	var enemies = Globals.current_area.enemies
+	# only attempt to spawn in areas that have enemies
+	if enemies.size() > 0:
+		# spawn an enemy at random equal chance
+		var should_enemy_spawn = (randi_range(0, enemy_spawn_chance_weight) == 0)
+		if should_enemy_spawn:
+			var enemy_id = randi_range(0, enemies.size()-1)
+			var enemy = enemies[enemy_id]
+			print(enemy.enemy_stats.name + " is spawning!!!")
 
 func get_next_pos() -> void:
 	next_pos = self.position

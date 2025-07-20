@@ -11,6 +11,7 @@ extends Resource
 @export var level: int
 @export var experience: int
 @export var gold: int
+@export var battle_sprite: CompressedTexture2D
 
 func add_item_stats(item_stats: ItemStats):
     self.hp_max += item_stats.hp_max

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=25 format=3 uid="uid://duejvarh235ur"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=26 format=3 uid="uid://duejvarh235ur"]
 
 [ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://assets/resources/enemies/enemy_attack.gd" id="1_ojewt"]
 [ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://assets/resources/enemies/enemy_stats.gd" id="2_b1r01"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://bkby23jra1c5r" path="res://assets/resources/items/UltimateBracelet.tres" id="14_rfc8w"]
 [ext_resource type="Resource" uid="uid://uixygvrqrm11" path="res://assets/resources/items/UltimateNecklace.tres" id="15_xwus6"]
 [ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="16_1kif5"]
+[ext_resource type="Texture2D" uid="uid://dv418tvf5lagp" path="res://assets/images_32x32/enemy10.png" id="17_b1r01"]
 [ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://assets/resources/common/stats.gd" id="17_i5208"]
 
 [sub_resource type="Resource" id="Resource_ojewt"]
@@ -82,6 +83,7 @@ defense = 36
 level = 5
 experience = 12500
 gold = 300
+battle_sprite = ExtResource("17_b1r01")
 
 [resource]
 script = ExtResource("16_1kif5")
