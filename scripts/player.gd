@@ -43,46 +43,45 @@ func _ready() -> void:
 	dir_map[FACING_DIRECTION.RIGHT] = DirectionStuff.new("right", right_raycast, right_texture, FACING_DIRECTION.RIGHT)
 
 func _physics_process(delta: float) -> void:
-	if not Engine.is_editor_hint():
-		# process movement and facing direction
-		if movement_phase == MOVEMENT_PHASE.IDLE:
-			# face some direction
-			for dir in dir_map:
-				if Input.is_action_pressed(dir_map[dir].name):
-					facing = dir
-					sprite.texture = dir_map[dir].texture
+	# process movement and facing direction
+	if movement_phase == MOVEMENT_PHASE.IDLE:
+		# face some direction
+		for dir in dir_map:
+			if Input.is_action_pressed(dir_map[dir].name):
+				facing = dir
+				sprite.texture = dir_map[dir].texture
 
-			next_pos = self.position
-			# attempt to move in some direction
-			for dir in dir_map:
-				if not is_colliding_with_boundary(dir_map[dir].raycast) and Input.is_action_pressed(dir_map[dir].name):
-					movement_phase = MOVEMENT_PHASE.ONE
-					break
+		next_pos = self.position
+		# attempt to move in some direction
+		for dir in dir_map:
+			if not is_colliding_with_boundary(dir_map[dir].raycast) and Input.is_action_pressed(dir_map[dir].name):
+				movement_phase = MOVEMENT_PHASE.ONE
+				break
 
-			# get next position because we are now moving
-			if movement_phase != MOVEMENT_PHASE.IDLE:
-				get_next_pos()
-
-		# check if player is interacting
-		if movement_phase == MOVEMENT_PHASE.IDLE and Input.is_action_just_pressed("interact"):
-			for dir in dir_map:
-				if facing == dir_map[dir].direction:
-					if has_custom_data_layer(dir_map[dir].raycast, "Dialog"):
-						print_debug("TODO: pop open dialog menu")
-						# TODO: pop open dialog menu
-						pass
-					elif has_custom_data_layer(dir_map[dir].raycast, "MobID") and \
-						get_custom_data_layer(dir_map[dir].raycast, "MobID") != -1:
-						print_debug("TODO: pop open battle menu")
-						# TODO: pop open battle menu
-						pass
-
+		# get next position because we are now moving
 		if movement_phase != MOVEMENT_PHASE.IDLE:
-			self.position = self.position.lerp(next_pos, delta+0.3)
-			if self.position.distance_to(next_pos) <= 1:
-				self.position = next_pos
-				movement_phase = (movement_phase + 1) % MOVEMENT_PHASE.size() as MOVEMENT_PHASE
-				get_next_pos()
+			get_next_pos()
+
+	# check if player is interacting
+	if movement_phase == MOVEMENT_PHASE.IDLE and Input.is_action_just_pressed("interact"):
+		for dir in dir_map:
+			if facing == dir_map[dir].direction:
+				if has_custom_data_layer(dir_map[dir].raycast, "Dialog"):
+					print_debug("TODO: pop open dialog menu")
+					# TODO: pop open dialog menu
+					pass
+				elif has_custom_data_layer(dir_map[dir].raycast, "MobID") and \
+					get_custom_data_layer(dir_map[dir].raycast, "MobID") != -1:
+					print_debug("TODO: pop open battle menu")
+					# TODO: pop open battle menu
+					pass
+
+	if movement_phase != MOVEMENT_PHASE.IDLE:
+		self.position = self.position.lerp(next_pos, delta+0.3)
+		if self.position.distance_to(next_pos) <= 1:
+			self.position = next_pos
+			movement_phase = (movement_phase + 1) % MOVEMENT_PHASE.size() as MOVEMENT_PHASE
+			get_next_pos()
 
 func get_next_pos() -> void:
 	next_pos = self.position
