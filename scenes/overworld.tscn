@@ -1,9 +1,7 @@
-[gd_scene load_steps=47 format=4 uid="uid://c2b8paallkb"]
+[gd_scene load_steps=45 format=4 uid="uid://c2b8paallkb"]
 
 [ext_resource type="Texture2D" uid="uid://d4eyufdu7pdmh" path="res://assets/images_32x32/area0.png" id="1_u2ss0"]
 [ext_resource type="Texture2D" uid="uid://daue6mbg8nf37" path="res://assets/images_32x32/area1.png" id="2_3gvrs"]
-[ext_resource type="Script" uid="uid://bql4mcfocafop" path="res://scripts/player.gd" id="2_u2ss0"]
-[ext_resource type="Texture2D" uid="uid://bbpb4oikwra17" path="res://assets/images_32x32/player_down.png" id="3_356oe"]
 [ext_resource type="Texture2D" uid="uid://73ecuxyvqjkx" path="res://assets/images_32x32/area2.png" id="3_nesqq"]
 [ext_resource type="Texture2D" uid="uid://cpd3tgfodsjl1" path="res://assets/images_32x32/area3.png" id="4_lsky2"]
 [ext_resource type="Texture2D" uid="uid://borb2rhqhgekl" path="res://assets/images_32x32/area4.png" id="5_255p0"]
@@ -15,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dt02x1whpo3ki" path="res://assets/images_32x32/npc4.png" id="10_pss1p"]
 [ext_resource type="Texture2D" uid="uid://bbxa6ff2q1uqi" path="res://assets/images_32x32/npc5.png" id="11_ha27p"]
 [ext_resource type="Texture2D" uid="uid://7vprstmkc1cv" path="res://assets/images_32x32/black.png" id="12_rep30"]
+[ext_resource type="PackedScene" uid="uid://vr5a6l11hbjy" path="res://scenes/player.tscn" id="13_bt1bw"]
 [ext_resource type="Script" uid="uid://do8kvdxg4upl5" path="res://scripts/my_resource_script.gd" id="15_fuc0k"]
 [ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="16_pss1p"]
 [ext_resource type="Resource" uid="uid://be5ecl6cm8cfr" path="res://assets/resources/enemies/Slime.tres" id="17_ha27p"]
@@ -1066,7 +1065,7 @@ texture = ExtResource("11_ha27p")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-0:0/0/custom_data_0 = "BEWARE of monsters in deeper areas!"
+0:0/0/custom_data_0 = "BEWARE! Monsters further!"
 0:0/0/custom_data_1 = -1
 
 [sub_resource type="TileSet" id="TileSet_wf4j4"]
@@ -1085,9 +1084,6 @@ sources/3 = SubResource("TileSetAtlasSource_hcmvr")
 sources/4 = SubResource("TileSetAtlasSource_qkc01")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rep30"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gvrs"]
-size = Vector2(34, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkyvp"]
 size = Vector2(497, 307)
@@ -1111,43 +1107,15 @@ rendering_quadrant_size = 32
 [node name="NPCs" type="TileMapLayer" parent="TileMapLayerHolder" groups=["boundary"]]
 unique_name_in_owner = true
 position = Vector2(1000, 10000)
-tile_map_data = PackedByteArray("AAABAAAABAAAAAAAAAD8/wEAAgAAAAAAAAD6/wEAAwAAAAAAAAA0AOv/AAAAAAAAAAAwAOj/AQAAAAAAAAAxAO//AQAAAAAAAAAyAO//AQAAAAAAAAA1AOn/AQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8/wEAAgAAAAAAAAD6/wEAAwAAAAAAAAA0AOv/AAAAAAAAAAAwAOj/AQAAAAAAAAAxAO//AQAAAAAAAAAyAO//AQAAAAAAAAA1AOn/AQAAAAAAAAABAPz/BAAAAAAAAAA=")
 tile_set = SubResource("TileSet_wf4j4")
 use_kinematic_bodies = true
 
 [node name="Sprite2D" type="Sprite2D" parent="TileMapLayerHolder"]
 texture = SubResource("CompressedTexture2D_rep30")
 
-[node name="Player" type="Area2D" parent="." groups=["player"]]
+[node name="Player" parent="." instance=ExtResource("13_bt1bw")]
 position = Vector2(984, 10080)
-script = ExtResource("2_u2ss0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-scale = Vector2(0.92, 0.92)
-shape = SubResource("RectangleShape2D_3gvrs")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-z_index = 999
-texture = ExtResource("3_356oe")
-
-[node name="Timer" type="Timer" parent="Player"]
-wait_time = 0.15
-
-[node name="UpRayCast2D" type="RayCast2D" parent="Player"]
-target_position = Vector2(0, -22)
-collide_with_areas = true
-
-[node name="DownRayCast2D" type="RayCast2D" parent="Player"]
-target_position = Vector2(0, 22)
-collide_with_areas = true
-
-[node name="LeftRayCast2D" type="RayCast2D" parent="Player"]
-target_position = Vector2(-22, 0)
-collide_with_areas = true
-
-[node name="RightRayCast2D" type="RayCast2D" parent="Player"]
-target_position = Vector2(22, 0)
-collide_with_areas = true
 
 [node name="Area0" type="Node2D" parent="."]
 position = Vector2(1000, 10000)
@@ -1226,7 +1194,6 @@ enemies = Array[ExtResource("16_pss1p")]([ExtResource("26_bt1bw"), ExtResource("
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_fkyvp")
 
-[node name="MyTools" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+[node name="MyTools" type="Node2D" parent="."]
 position = Vector2(-1234, 0)
 script = ExtResource("15_fuc0k")
-player = NodePath("../Player")

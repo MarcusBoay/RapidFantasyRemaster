@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=13 format=3 uid="uid://6kurbyb6n2dy"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=14 format=3 uid="uid://6kurbyb6n2dy"]
 
 [ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://assets/resources/enemies/enemy_attack.gd" id="1_7ufjh"]
+[ext_resource type="Resource" uid="uid://dhssf6u1k0wdv" path="res://assets/resources/enemies/EmperorPenguinIII.tres" id="2_a37rl"]
 [ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://assets/resources/enemies/enemy_stats.gd" id="2_jmx8g"]
 [ext_resource type="Script" uid="uid://m418ptflm4d3" path="res://assets/resources/enemies/loot_table.gd" id="3_a37rl"]
 [ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://assets/resources/enemies/enemy.gd" id="4_r80mk"]
@@ -41,7 +42,7 @@ id = 12
 name = "Emperor Penguin II"
 description = ""
 element = 3
-next_phase = 13
+next_phase = ExtResource("2_a37rl")
 
 [sub_resource type="Resource" id="Resource_p8xm2"]
 script = ExtResource("5_2ttpg")

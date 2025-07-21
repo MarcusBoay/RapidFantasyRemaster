@@ -30,7 +30,6 @@ var right_texture = preload("res://assets/images_32x32/player_right.png")
 # probably better to put this into some independent node...
 var enemy_spawn_chance_weight: int = 10 # higher weight == lower chance of enemy spawns
 
-
 var dir_map: Dictionary[FACING_DIRECTION, DirectionStuff] = {}
 
 @onready var sprite = $Sprite2D
@@ -140,6 +139,7 @@ func get_tile_data(raycast: RayCast2D) -> TileData:
 	var coords = npc_tilemaplayer.get_coords_for_body_rid(raycast.get_collider_rid())
 	return npc_tilemaplayer.get_cell_tile_data(coords)
 
+# class to group all the related direction variables...
 class DirectionStuff:
 	var name: String
 	var raycast: RayCast2D

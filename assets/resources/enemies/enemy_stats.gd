@@ -5,4 +5,4 @@ extends Resource
 @export var name: String
 @export var description: String
 @export var element: Globals.Element
-@export var next_phase: int
+@export var next_phase: Enemy

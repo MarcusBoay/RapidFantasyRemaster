@@ -35,6 +35,8 @@ SceneLoader="*res://addons/maaacks_menus_template/base/scenes/autoloads/scene_lo
 ProjectMusicController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
 Globals="*res://scripts/global.gd"
+GameManager="*res://scripts/GameManager.tscn"
+PlayerManager="*res://scenes/player_manager.tscn"
 
 [display]
 

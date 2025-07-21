@@ -22,6 +22,28 @@
         "visibility": 0.0
       }
     },
+    "res://assets/resources/enemies::attacks/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
+    "res://assets/resources/enemies::enemy_stats/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
     "res://assets/resources/enemies::stats/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
@@ -75,7 +97,9 @@
     "res://assets/resources/items/",
     "res://assets/resources/items::stats/",
     "res://assets/resources/enemies/",
-    "res://assets/resources/enemies::stats/"
+    "res://assets/resources/enemies::stats/",
+    "res://assets/resources/enemies::enemy_stats/",
+    "res://assets/resources/enemies::attacks/"
   ],
   "table_functions": {
     "filter": [
