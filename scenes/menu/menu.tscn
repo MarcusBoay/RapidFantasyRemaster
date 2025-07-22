@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://wcrgp6fa7k4p"]
+
+[ext_resource type="Script" uid="uid://dotnytqbq0mk1" path="res://scenes/menu/menu.gd" id="1_klgdb"]
+[ext_resource type="Script" uid="uid://dayj8xgk0veh3" path="res://scenes/menu/stats_container.gd" id="2_mcvr8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_klgdb")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="StatsContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+script = ExtResource("2_mcvr8")
+
+[node name="HPLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "HP: 999"
+
+[node name="MPLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "MP: 999"
+
+[node name="LevelLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "Level: 999"
+
+[node name="ExpLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "Exp: 999"
+
+[node name="LimitLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "Limit: 99%"
+
+[node name="StrengthLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "Strength: 999"
+
+[node name="WisdomLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "Wisdom: 999"
+
+[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "Defence: 999"
+
+[node name="GoldLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
+layout_mode = 2
+text = "Gold: 999"
+
+[node name="TestContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="AddHP" type="Button" parent="PanelContainer/HBoxContainer/TestContainer"]
+layout_mode = 2
+text = "Add HP"
+
+[node name="MinusHP" type="Button" parent="PanelContainer/HBoxContainer/TestContainer"]
+layout_mode = 2
+text = "Minus HP"
+
+[connection signal="pressed" from="PanelContainer/HBoxContainer/TestContainer/AddHP" to="." method="_on_add_hp_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/TestContainer/MinusHP" to="." method="_on_minus_hp_pressed"]
