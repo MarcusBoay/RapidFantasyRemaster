@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://wcrgp6fa7k4p"]
+[gd_scene load_steps=4 format=3 uid="uid://wcrgp6fa7k4p"]
 
 [ext_resource type="Script" uid="uid://dotnytqbq0mk1" path="res://scenes/menu/menu.gd" id="1_klgdb"]
-[ext_resource type="Script" uid="uid://dayj8xgk0veh3" path="res://scenes/menu/stats_container.gd" id="2_mcvr8"]
+[ext_resource type="PackedScene" uid="uid://cep8prwtmd5yt" path="res://scenes/menu/stats_container.tscn" id="2_mcvr8"]
+[ext_resource type="PackedScene" uid="uid://certcj8gg5mep" path="res://scenes/menu/item_stat_container.tscn" id="3_e0arn"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -23,47 +24,11 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="StatsContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="StatsContainer" parent="PanelContainer/HBoxContainer" instance=ExtResource("2_mcvr8")]
 layout_mode = 2
-script = ExtResource("2_mcvr8")
-
-[node name="HPLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "HP: 999"
-
-[node name="MPLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "MP: 999"
-
-[node name="LevelLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "Level: 999"
-
-[node name="ExpLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "Exp: 999"
-
-[node name="LimitLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "Limit: 99%"
-
-[node name="StrengthLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "Strength: 999"
-
-[node name="WisdomLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "Wisdom: 999"
-
-[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "Defence: 999"
-
-[node name="GoldLabel" type="Label" parent="PanelContainer/HBoxContainer/StatsContainer"]
-layout_mode = 2
-text = "Gold: 999"
 
 [node name="TestContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="AddHP" type="Button" parent="PanelContainer/HBoxContainer/TestContainer"]
@@ -74,5 +39,84 @@ text = "Add HP"
 layout_mode = 2
 text = "Minus HP"
 
+[node name="ItemsContainer" type="ItemList" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+auto_width = true
+
+[node name="EquipmentContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="MagicEquippedContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="LimitContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="AttackStatContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ItemStatContainer" parent="PanelContainer/HBoxContainer" instance=ExtResource("3_e0arn")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="AttacksContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Spacer" type="PanelContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionsContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ItemsButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
+layout_mode = 2
+text = "Items"
+
+[node name="EquipmentButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
+layout_mode = 2
+text = "Equips"
+
+[node name="MagicButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
+layout_mode = 2
+text = "Magic"
+
+[node name="LimitButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
+layout_mode = 2
+text = "Limit"
+
+[node name="SettingsButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="SaveButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="ExitButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
+layout_mode = 2
+text = "Exit"
+
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TestContainer/AddHP" to="." method="_on_add_hp_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TestContainer/MinusHP" to="." method="_on_minus_hp_pressed"]
+[connection signal="item_selected" from="PanelContainer/HBoxContainer/ItemsContainer" to="." method="_on_items_container_item_selected"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/ItemsButton" to="." method="_on_items_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/EquipmentButton" to="." method="_on_equipment_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/MagicButton" to="." method="_on_magic_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/LimitButton" to="." method="_on_limit_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/ExitButton" to="." method="_on_exit_button_pressed"]

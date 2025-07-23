@@ -29,3 +29,5 @@ signal player_defense_new(x: int)
 
 signal player_gold_changed(delta: int)
 signal player_gold_new(x: int)
+
+signal player_items_empty()

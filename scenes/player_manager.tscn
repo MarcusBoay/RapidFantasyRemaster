@@ -1,14 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://b05u3g3k4vad4"]
+[gd_scene load_steps=17 format=3 uid="uid://b05u3g3k4vad4"]
 
 [ext_resource type="Script" uid="uid://c8wqftjr31ukj" path="res://scenes/player_manager.gd" id="1_wd4cv"]
 [ext_resource type="Texture2D" uid="uid://4xadp3hpmunm" path="res://assets/images_32x32/player_battle.png" id="2_1aieh"]
 [ext_resource type="Script" uid="uid://iek1yg1f8q70" path="res://assets/resources/player_attacks/player_attack.gd" id="2_o0hbs"]
 [ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://assets/resources/common/stats.gd" id="3_oav6u"]
+[ext_resource type="Resource" uid="uid://c8s4bq06bsx6e" path="res://assets/resources/player_attacks/Tackle.tres" id="3_pk1l5"]
 [ext_resource type="Resource" uid="uid://dhk1y2qxxdpqo" path="res://assets/resources/player_attacks/SonicSpike.tres" id="4_cx64s"]
 [ext_resource type="Resource" uid="uid://cc88lghgdsokh" path="res://assets/resources/player_attacks/FireBall.tres" id="6_keqpo"]
+[ext_resource type="Resource" uid="uid://bg04oao35kii2" path="res://assets/resources/player_attacks/DarkSpear.tres" id="7_8q8fb"]
 [ext_resource type="Resource" uid="uid://c55bnmy41yxpl" path="res://assets/resources/player_attacks/LightningBolt.tres" id="7_okspr"]
 [ext_resource type="Resource" uid="uid://cswm8gnpwkseu" path="res://assets/resources/player_attacks/BubbleBeam.tres" id="8_2gbos"]
+[ext_resource type="Resource" uid="uid://ca5p2pp01m6ab" path="res://assets/resources/player_attacks/HolyLight.tres" id="8_c35j7"]
 [ext_resource type="Resource" uid="uid://c70mr3twyayww" path="res://assets/resources/player_attacks/StoneEdge.tres" id="9_o0hbs"]
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://assets/resources/items/item.gd" id="11_xro25"]
+[ext_resource type="Resource" uid="uid://pxlrmuo7hxef" path="res://assets/resources/items/RedPotionI.tres" id="12_lrkpp"]
+[ext_resource type="Resource" uid="uid://b8j20lb3vnbxt" path="res://assets/resources/items/BluePotionI.tres" id="13_8ha2q"]
 
 [sub_resource type="Resource" id="Resource_vphsc"]
 script = ExtResource("3_oav6u")
@@ -27,6 +33,20 @@ metadata/_custom_type_script = "uid://dy3uprrjetgpe"
 
 [node name="PlayerManager" type="Node"]
 script = ExtResource("1_wd4cv")
+initial_attacks = Dictionary[ExtResource("2_o0hbs"), int]({
+ExtResource("3_pk1l5"): 0,
+ExtResource("8_2gbos"): 0,
+ExtResource("9_o0hbs"): 0,
+ExtResource("7_okspr"): 0,
+ExtResource("7_8q8fb"): 0,
+ExtResource("8_c35j7"): 0,
+ExtResource("6_keqpo"): 0,
+ExtResource("4_cx64s"): 0
+})
+initial_items = Dictionary[ExtResource("11_xro25"), int]({
+ExtResource("12_lrkpp"): 5,
+ExtResource("13_8ha2q"): 5
+})
 initial_stats = SubResource("Resource_vphsc")
-initial_limit = ExtResource("4_cx64s")
-initial_magic = Array[ExtResource("2_o0hbs")]([ExtResource("6_keqpo"), ExtResource("7_okspr"), ExtResource("8_2gbos"), ExtResource("9_o0hbs")])
+initial_equipped_limit = ExtResource("4_cx64s")
+initial_equipped_magic = Array[ExtResource("2_o0hbs")]([ExtResource("6_keqpo"), ExtResource("7_okspr"), ExtResource("8_2gbos"), ExtResource("9_o0hbs")])
