@@ -99,7 +99,7 @@ func _populate_items_container() -> void:
     # Filter out non-consumable items (weapon, armor, ...).
     var consumable_count = 0
     for item in items:
-        consumable_count += item.item_type == Globals.ItemType.CONSUMABLE
+        consumable_count += (item.item_type == Globals.ItemType.CONSUMABLE) as int
 
     # Add a "No items" item...
     if consumable_count == 0:
@@ -122,8 +122,8 @@ func _populate_items_container() -> void:
 func _use_item(item: Item, idx: int) -> void:
     # this is ugly but whatever... why can't we have a list that binds to the data in godot..????
     var item_count = PlayerManager.inventory.items[item]
+    items_container.set_item_text(idx, item.name + ": " + str(item_count-1))
     if item_count <= 1:
         item_stat_container.visible = false
         items_container.remove_item(idx)
-    items_container.set_item_text(idx, item.name + ": " + str(item_count-1))
     PlayerManager.use_item(item)
