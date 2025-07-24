@@ -1,12 +1,17 @@
 extends Control
 
 @onready var items_container: ItemList = %ItemsContainer
-@onready var magic_equipped_container: VBoxContainer = %MagicEquippedContainer
-@onready var equipment_container: VBoxContainer = %EquipmentContainer
-@onready var limit_container: VBoxContainer = %LimitContainer
-@onready var attack_stat_container: VBoxContainer = %AttackStatContainer
 @onready var item_stat_container: VBoxContainer = %ItemStatContainer
+
+@onready var equipment_container: VBoxContainer = %EquipmentContainer
+@onready var equip_stats_container: VBoxContainer = %EquipStatsContainer
+@onready var equips_container: ItemList = %EquipsContainer
+
+@onready var magic_equipped_container: VBoxContainer = %MagicEquippedContainer
+@onready var attack_stat_container: VBoxContainer = %AttackStatContainer
 @onready var attacks_container: VBoxContainer = %AttacksContainer
+
+@onready var limit_container: VBoxContainer = %LimitContainer
 
 ### Lifecycle
 
@@ -20,16 +25,22 @@ func _connect_signals() -> void:
     MenuSignals.use_item.connect(_use_item)
     EventBus.player_items_empty.connect(_populate_items_container)
 
+
 ### Actions Container
 
 func _hide_all_containers() -> void:
     items_container.visible = false
-    magic_equipped_container.visible = false
-    equipment_container.visible = false
-    limit_container.visible = false
-    attack_stat_container.visible = false
     item_stat_container.visible = false
+
+    equipment_container.visible = false
+    equip_stats_container.visible = false
+    equips_container.visible = false
+
+    magic_equipped_container.visible = false
+    attack_stat_container.visible = false
     attacks_container.visible = false
+
+    limit_container.visible = false
 
 func _hide_all_but_toggle(cont: Control) -> void:
     var orig_visibility = cont.visible
@@ -46,6 +57,7 @@ func _on_items_button_pressed() -> void:
 
 func _on_equipment_button_pressed() -> void:
     _hide_all_but_toggle(equipment_container)
+    equipment_container.populate_equipment_container()
 
 
 func _on_magic_button_pressed() -> void:
@@ -84,7 +96,8 @@ func _on_add_hp_pressed() -> void:
 func _on_minus_hp_pressed() -> void:
     EventBus.player_hp_changed.emit(-3)
 
-### Items Container
+### Items
+## Items Container
 
 func _on_items_container_item_selected(index: int) -> void:
     item_stat_container.visible = true
@@ -114,8 +127,8 @@ func _populate_items_container() -> void:
             continue
         var item_str = item.name + ": " + str(items[item])
         items_container.add_item(item_str)
-        items_container.set_item_metadata(items_container.item_count - 1, item)
-        items_container.set_item_tooltip_enabled(items_container.item_count - 1, false)
+        items_container.set_item_metadata(-1, item)
+        items_container.set_item_tooltip_enabled(-1, false)
 
 ## Items Stat Container
 
@@ -127,3 +140,41 @@ func _use_item(item: Item, idx: int) -> void:
         item_stat_container.visible = false
         items_container.remove_item(idx)
     PlayerManager.use_item(item)
+
+### Equips
+## Equipment Container
+
+func _on_weapon_button_pressed() -> void:
+    equip_stats_container.visible = false
+    equips_container.visible = false
+    if PlayerManager.equips.weapon:
+        equip_stats_container.visible = true
+        equip_stats_container.populate(PlayerManager.equips.weapon)
+    else:
+        equips_container.show_equips(Globals.ItemType.WEAPON)
+
+
+func _on_armor_button_pressed() -> void:
+    equip_stats_container.visible = false
+    equips_container.visible = false
+    if PlayerManager.equips.armor:
+        equip_stats_container.visible = true
+        equip_stats_container.populate(PlayerManager.equips.armor)
+    else:
+        equips_container.show_equips(Globals.ItemType.ARMOR)
+
+
+func _on_accessory_button_pressed() -> void:
+    equip_stats_container.visible = false
+    equips_container.visible = false
+    if PlayerManager.equips.accessory:
+        equip_stats_container.visible = true
+        equip_stats_container.populate(PlayerManager.equips.accessory)
+    else:
+        equips_container.show_equips(Globals.ItemType.ACCESSORY)
+
+
+func _on_change_button_pressed() -> void:
+    equips_container.show_equips(equip_stats_container.item_ref.item_type)
+    # hide self
+    equip_stats_container.visible = false

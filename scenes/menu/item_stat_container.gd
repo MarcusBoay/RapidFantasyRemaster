@@ -6,7 +6,6 @@ extends VBoxContainer
 var item_ref: Item
 var idx_ref: int
 
-
 func show_item(item: Item, idx: int) -> void:
     item_ref = item
     idx_ref = idx

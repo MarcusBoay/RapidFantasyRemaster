@@ -41,13 +41,13 @@ func set_limit_label(x: int):
     limit_label.text = "Limit: " + str(x)
 
 func set_strength_label(x: int):
-    strength_label.text = "Strength: " + str(x)
+    strength_label.text = "Str: " + str(x)
 
 func set_wisdom_label(x: int):
-    wisdom_label.text = "Wisdom: " + str(x)
+    wisdom_label.text = "Wis: " + str(x)
 
 func set_defense_label(x: int):
-    defense_label.text = "Defense: " + str(x)
+    defense_label.text = "Def: " + str(x)
 
 func set_gold_label(x: int):
     gold_label.text = "Gold: " + str(x)

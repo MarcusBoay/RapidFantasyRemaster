@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b05u3g3k4vad4"]
+[gd_scene load_steps=21 format=3 uid="uid://b05u3g3k4vad4"]
 
 [ext_resource type="Script" uid="uid://c8wqftjr31ukj" path="res://scenes/player_manager.gd" id="1_wd4cv"]
 [ext_resource type="Texture2D" uid="uid://4xadp3hpmunm" path="res://assets/images_32x32/player_battle.png" id="2_1aieh"]
@@ -15,6 +15,10 @@
 [ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://assets/resources/items/item.gd" id="11_xro25"]
 [ext_resource type="Resource" uid="uid://pxlrmuo7hxef" path="res://assets/resources/items/RedPotionI.tres" id="12_lrkpp"]
 [ext_resource type="Resource" uid="uid://b8j20lb3vnbxt" path="res://assets/resources/items/BluePotionI.tres" id="13_8ha2q"]
+[ext_resource type="Resource" uid="uid://c50wd8g3jipkk" path="res://assets/resources/items/SagaciousNecklace.tres" id="14_c35j7"]
+[ext_resource type="Resource" uid="uid://bmnc4ybcx2pi2" path="res://assets/resources/items/SteelSword.tres" id="15_xro25"]
+[ext_resource type="Resource" uid="uid://bfipqel681sdw" path="res://assets/resources/items/SteelArmor.tres" id="16_xro25"]
+[ext_resource type="Resource" uid="uid://c5ancdd3ewo3i" path="res://assets/resources/items/CactusArmor.tres" id="17_lrkpp"]
 
 [sub_resource type="Resource" id="Resource_vphsc"]
 script = ExtResource("3_oav6u")
@@ -45,7 +49,11 @@ ExtResource("4_cx64s"): 0
 })
 initial_items = Dictionary[ExtResource("11_xro25"), int]({
 ExtResource("12_lrkpp"): 5,
-ExtResource("13_8ha2q"): 5
+ExtResource("13_8ha2q"): 5,
+ExtResource("14_c35j7"): 1,
+ExtResource("15_xro25"): 1,
+ExtResource("16_xro25"): 1,
+ExtResource("17_lrkpp"): 1
 })
 initial_stats = SubResource("Resource_vphsc")
 initial_equipped_limit = ExtResource("4_cx64s")

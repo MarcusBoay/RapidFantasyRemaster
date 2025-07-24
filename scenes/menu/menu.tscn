@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://wcrgp6fa7k4p"]
+[gd_scene load_steps=7 format=3 uid="uid://wcrgp6fa7k4p"]
 
 [ext_resource type="Script" uid="uid://dotnytqbq0mk1" path="res://scenes/menu/menu.gd" id="1_klgdb"]
 [ext_resource type="PackedScene" uid="uid://cep8prwtmd5yt" path="res://scenes/menu/stats_container.tscn" id="2_mcvr8"]
 [ext_resource type="PackedScene" uid="uid://certcj8gg5mep" path="res://scenes/menu/item_stat_container.tscn" id="3_e0arn"]
+[ext_resource type="Script" uid="uid://huutobnx3oj4" path="res://scenes/menu/equipment_container.gd" id="4_037ec"]
+[ext_resource type="Script" uid="uid://c8wnbkf5etxgx" path="res://scenes/menu/equip_stats_container.gd" id="5_y1o0p"]
+[ext_resource type="Script" uid="uid://dqjgd16k24mv7" path="res://scenes/menu/equips_container.gd" id="6_r8yej"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -45,17 +48,87 @@ visible = false
 layout_mode = 2
 auto_width = true
 
+[node name="ItemStatContainer" parent="PanelContainer/HBoxContainer" instance=ExtResource("3_e0arn")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
 [node name="EquipmentContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+script = ExtResource("4_037ec")
 
-[node name="MagicEquippedContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="WeaponLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipmentContainer"]
+layout_mode = 2
+text = "Weapon:"
+
+[node name="WeaponButton" type="Button" parent="PanelContainer/HBoxContainer/EquipmentContainer"]
+layout_mode = 2
+text = "wepon"
+
+[node name="ArmorLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipmentContainer"]
+layout_mode = 2
+text = "Armor:"
+
+[node name="ArmorButton" type="Button" parent="PanelContainer/HBoxContainer/EquipmentContainer"]
+layout_mode = 2
+text = "armor"
+
+[node name="AccessoryLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipmentContainer"]
+layout_mode = 2
+text = "Accessory:"
+
+[node name="AccessoryButton" type="Button" parent="PanelContainer/HBoxContainer/EquipmentContainer"]
+layout_mode = 2
+text = "acc"
+
+[node name="EquipStatsContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+script = ExtResource("5_y1o0p")
 
-[node name="LimitContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipStatsContainer"]
+layout_mode = 2
+text = "NAME"
+
+[node name="HpLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipStatsContainer"]
+layout_mode = 2
+text = "HP: 999"
+
+[node name="MpLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipStatsContainer"]
+layout_mode = 2
+text = "MP: 999"
+
+[node name="StrengthLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipStatsContainer"]
+layout_mode = 2
+text = "Str: 999"
+
+[node name="WisdomLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipStatsContainer"]
+layout_mode = 2
+text = "Wis: 999"
+
+[node name="DefenseLabel" type="Label" parent="PanelContainer/HBoxContainer/EquipStatsContainer"]
+layout_mode = 2
+text = "Def: 999"
+
+[node name="UnequipButton" type="Button" parent="PanelContainer/HBoxContainer/EquipStatsContainer"]
+layout_mode = 2
+text = "Unequip"
+
+[node name="ChangeButton" type="Button" parent="PanelContainer/HBoxContainer/EquipStatsContainer"]
+layout_mode = 2
+text = "Change"
+
+[node name="EquipsContainer" type="ItemList" parent="PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+auto_width = true
+script = ExtResource("6_r8yej")
+
+[node name="MagicEquippedContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -65,12 +138,12 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="ItemStatContainer" parent="PanelContainer/HBoxContainer" instance=ExtResource("3_e0arn")]
+[node name="AttacksContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="AttacksContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="LimitContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -113,6 +186,15 @@ text = "Exit"
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TestContainer/AddHP" to="." method="_on_add_hp_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TestContainer/MinusHP" to="." method="_on_minus_hp_pressed"]
 [connection signal="item_selected" from="PanelContainer/HBoxContainer/ItemsContainer" to="." method="_on_items_container_item_selected"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/EquipmentContainer/WeaponButton" to="." method="_on_weapon_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/EquipmentContainer/ArmorButton" to="." method="_on_armor_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/EquipmentContainer/AccessoryButton" to="." method="_on_accessory_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/EquipStatsContainer/UnequipButton" to="." method="_on_unequip_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/EquipStatsContainer/UnequipButton" to="PanelContainer/HBoxContainer/EquipStatsContainer" method="_on_unequip_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/EquipStatsContainer/ChangeButton" to="." method="_on_change_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/EquipStatsContainer/ChangeButton" to="PanelContainer/HBoxContainer/EquipStatsContainer" method="_on_change_button_pressed"]
+[connection signal="item_selected" from="PanelContainer/HBoxContainer/EquipsContainer" to="." method="_on_equips_container_item_selected"]
+[connection signal="item_selected" from="PanelContainer/HBoxContainer/EquipsContainer" to="PanelContainer/HBoxContainer/EquipsContainer" method="_on_item_selected"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/ItemsButton" to="." method="_on_items_button_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/EquipmentButton" to="." method="_on_equipment_button_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/MagicButton" to="." method="_on_magic_button_pressed"]

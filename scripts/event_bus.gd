@@ -9,6 +9,12 @@ signal player_hp_new(x: int)
 signal player_mp_changed(delta: int)
 signal player_mp_new(x: int)
 
+signal player_hp_max_changed(delta: int)
+signal player_hp_max_new(x: int)
+
+signal player_mp_max_changed(delta: int)
+signal player_mp_max_new(x: int)
+
 signal player_level_changed(delta: int)
 signal player_level_new(x: int)
 
@@ -31,3 +37,6 @@ signal player_gold_changed(delta: int)
 signal player_gold_new(x: int)
 
 signal player_items_empty()
+
+signal player_equip_changed(equip: Item, equip_type: Globals.ItemType)
+signal player_equip_new(equip: Item, equip_type: Globals.ItemType)

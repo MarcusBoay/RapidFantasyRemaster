@@ -12,7 +12,7 @@ extends Node
 var equips: PlayerEquips
 var inventory: PlayerInventory
 var stats: Stats
-var limit: int # this is the ONLY player stat... just shove it in here
+var limit: int # this is the ONLY player-specific stat... just shove it in here
 
 func _ready():
     # set initial values
@@ -34,15 +34,10 @@ func _set_initial_inventory():
     inventory.items.clear()
     inventory.items = initial_items.duplicate(true)
 
-    # for atk in inventory.attacks:
-    # 	print(atk.name + " - tier: " + str(atk.tier))
-    # for item in inventory.items:
-    # 	print(item.name + " - count: " + str(inventory.items[item]))
 
 func _set_initial_stats():
     stats = initial_stats.duplicate(true)
 
-    # print(stats.battle_sprite.resource_path)
 
 func _set_initial_equips():
     # Player starts out with tier 1 magic equipped.
@@ -50,9 +45,6 @@ func _set_initial_equips():
     # Player starts out with 1st limit break.
     equips.limit = initial_equipped_limit.duplicate(true)
 
-    # print(equips.limit.name)
-    # for m in equips.magic:
-    # 	print(m.name)
 
 func connect_signals():
     EventBus.player_hp_changed.connect(update_player_hp)
@@ -64,25 +56,41 @@ func connect_signals():
     EventBus.player_wisdom_changed.connect(update_player_wisdom)
     EventBus.player_defense_changed.connect(update_player_defense)
     EventBus.player_gold_changed.connect(update_player_gold)
+    EventBus.player_equip_changed.connect(update_player_equip)
 
 func update_player_hp(delta: int):
     stats.hp = min(stats.hp_max, stats.hp+delta)
+    # TODO: probably should clamp max(0, ..)
     EventBus.player_hp_new.emit(stats.hp)
 
 func update_player_mp(delta: int):
     stats.mp = min(stats.mp_max, stats.mp+delta)
+    # TODO: probably should clamp max(0, ..)
     EventBus.player_mp_new.emit(stats.mp)
+
+func update_player_hp_max(delta: int):
+    stats.hp_max += delta
+    # TODO: probably should clamp max(0, ..)
+    EventBus.player_hp_max_new.emit(stats.hp_max)
+
+func update_player_mp_max(delta: int):
+    stats.mp_max += delta
+    # TODO: probably should clamp max(0, ..)
+    EventBus.player_mp_max_new.emit(stats.mp_max)
 
 func update_player_level(delta: int):
     stats.level += delta
+    # TODO: probably should clamp max(level, 5)
     EventBus.player_level_new.emit(stats.level)
 
 func update_player_exp(delta: int):
     stats.experience += delta
+    # TODO: exp table
     EventBus.player_exp_new.emit(stats.experience)
 
 func update_player_limit(delta: int):
     limit += delta
+    # TODO: should clamp min(limit, 100)
     EventBus.player_limit_new.emit(limit)
 
 func update_player_strength(delta: int):
@@ -100,6 +108,38 @@ func update_player_defense(delta: int):
 func update_player_gold(delta: int):
     stats.gold += delta
     EventBus.player_gold_new.emit(stats.gold)
+
+func update_player_equip(new_equip: Item, equip_type: Globals.ItemType):
+    var cur_equip: Item
+    if equip_type == Globals.ItemType.WEAPON:
+        cur_equip = equips.weapon
+        equips.weapon = new_equip
+    elif equip_type == Globals.ItemType.ARMOR:
+        cur_equip = equips.armor
+        equips.armor = new_equip
+    elif equip_type == Globals.ItemType.ACCESSORY:
+        cur_equip = equips.accessory
+        equips.accessory = new_equip
+    else:
+        print_debug("NOT AN EQUIPPABLE!!!")
+        return
+
+    # HACK: this is messy code... there should be a separate function for unequipping... oh well...
+    var is_unequip = (new_equip == null)
+    if not new_equip:
+        new_equip = Item.new()
+        new_equip.stats = ItemStats.new()
+    if not cur_equip:
+        cur_equip = Item.new()
+        cur_equip.stats = ItemStats.new()
+    update_player_hp_max(new_equip.stats.hp_max - cur_equip.stats.hp_max)
+    update_player_mp_max(new_equip.stats.mp_max - cur_equip.stats.mp_max)
+    update_player_hp(0)
+    update_player_mp(0)
+    update_player_strength(new_equip.stats.strength - cur_equip.stats.strength)
+    update_player_wisdom(new_equip.stats.wisdom - cur_equip.stats.wisdom)
+    update_player_defense(new_equip.stats.defense - cur_equip.stats.defense)
+    EventBus.player_equip_new.emit(null if is_unequip else new_equip, equip_type)
 
 func use_item(item: Item):
     if item.item_type != Globals.ItemType.CONSUMABLE:

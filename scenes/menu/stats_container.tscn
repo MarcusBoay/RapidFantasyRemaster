@@ -33,17 +33,17 @@ text = "Limit: 99%"
 [node name="StrengthLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Strength: 999"
+text = "Str: 999"
 
 [node name="WisdomLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Wisdom: 999"
+text = "Wis: 999"
 
 [node name="DefenseLabel" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Defence: 999"
+text = "Def: 999"
 
 [node name="GoldLabel" type="Label" parent="."]
 unique_name_in_owner = true
