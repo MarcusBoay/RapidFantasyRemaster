@@ -57,6 +57,7 @@ func connect_signals():
     EventBus.player_defense_changed.connect(update_player_defense)
     EventBus.player_gold_changed.connect(update_player_gold)
     EventBus.player_equip_changed.connect(update_player_equip)
+    EventBus.player_magic_changed.connect(update_player_magic)
 
 func update_player_hp(delta: int):
     stats.hp = min(stats.hp_max, stats.hp+delta)
@@ -140,6 +141,10 @@ func update_player_equip(new_equip: Item, equip_type: Globals.ItemType):
     update_player_wisdom(new_equip.stats.wisdom - cur_equip.stats.wisdom)
     update_player_defense(new_equip.stats.defense - cur_equip.stats.defense)
     EventBus.player_equip_new.emit(null if is_unequip else new_equip, equip_type)
+
+func update_player_magic(new_magic: PlayerAttack, idx: int):
+    equips.magic[idx] = new_magic
+    EventBus.player_magic_new.emit(new_magic, idx)
 
 func use_item(item: Item):
     if item.item_type != Globals.ItemType.CONSUMABLE:

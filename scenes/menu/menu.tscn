@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://wcrgp6fa7k4p"]
+[gd_scene load_steps=9 format=3 uid="uid://wcrgp6fa7k4p"]
 
 [ext_resource type="Script" uid="uid://dotnytqbq0mk1" path="res://scenes/menu/menu.gd" id="1_klgdb"]
 [ext_resource type="PackedScene" uid="uid://cep8prwtmd5yt" path="res://scenes/menu/stats_container.tscn" id="2_mcvr8"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://huutobnx3oj4" path="res://scenes/menu/equipment_container.gd" id="4_037ec"]
 [ext_resource type="Script" uid="uid://c8wnbkf5etxgx" path="res://scenes/menu/equip_stats_container.gd" id="5_y1o0p"]
 [ext_resource type="Script" uid="uid://dqjgd16k24mv7" path="res://scenes/menu/equips_container.gd" id="6_r8yej"]
+[ext_resource type="Script" uid="uid://du1gn5d3vk8qk" path="res://scenes/menu/magic_equipped_container.gd" id="7_t0a87"]
+[ext_resource type="Script" uid="uid://dgw4gjk4c16dx" path="res://scenes/menu/attack_stat_container.gd" id="8_t0a87"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -132,16 +134,43 @@ script = ExtResource("6_r8yej")
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+script = ExtResource("7_t0a87")
 
 [node name="AttackStatContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+script = ExtResource("8_t0a87")
 
-[node name="AttacksContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+[node name="NameLabel" type="Label" parent="PanelContainer/HBoxContainer/AttackStatContainer"]
+layout_mode = 2
+text = "NAME"
+
+[node name="ElementLabel" type="Label" parent="PanelContainer/HBoxContainer/AttackStatContainer"]
+layout_mode = 2
+text = "ELEMENT"
+
+[node name="MpLabel" type="Label" parent="PanelContainer/HBoxContainer/AttackStatContainer"]
+layout_mode = 2
+text = "MP"
+
+[node name="TierLabel" type="Label" parent="PanelContainer/HBoxContainer/AttackStatContainer"]
+layout_mode = 2
+text = "TIER"
+
+[node name="UnequipButton" type="Button" parent="PanelContainer/HBoxContainer/AttackStatContainer"]
+layout_mode = 2
+text = "Unequip"
+
+[node name="ChangeButton" type="Button" parent="PanelContainer/HBoxContainer/AttackStatContainer"]
+layout_mode = 2
+text = "Change"
+
+[node name="AttacksContainer" type="ItemList" parent="PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+auto_width = true
 
 [node name="LimitContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -195,6 +224,9 @@ text = "Exit"
 [connection signal="pressed" from="PanelContainer/HBoxContainer/EquipStatsContainer/ChangeButton" to="PanelContainer/HBoxContainer/EquipStatsContainer" method="_on_change_button_pressed"]
 [connection signal="item_selected" from="PanelContainer/HBoxContainer/EquipsContainer" to="." method="_on_equips_container_item_selected"]
 [connection signal="item_selected" from="PanelContainer/HBoxContainer/EquipsContainer" to="PanelContainer/HBoxContainer/EquipsContainer" method="_on_item_selected"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/AttackStatContainer/UnequipButton" to="PanelContainer/HBoxContainer/AttackStatContainer" method="_on_unequip_button_pressed"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/AttackStatContainer/ChangeButton" to="PanelContainer/HBoxContainer/AttackStatContainer" method="_on_change_button_pressed"]
+[connection signal="item_selected" from="PanelContainer/HBoxContainer/AttacksContainer" to="." method="_on_attacks_container_item_selected"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/ItemsButton" to="." method="_on_items_button_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/EquipmentButton" to="." method="_on_equipment_button_pressed"]
 [connection signal="pressed" from="PanelContainer/HBoxContainer/ActionsContainer/MagicButton" to="." method="_on_magic_button_pressed"]

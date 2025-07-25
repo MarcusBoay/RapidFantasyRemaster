@@ -24,6 +24,24 @@ enum Element {
     LIGHT,
     DARK,
 }
+func get_element_as_str(e: Element) -> String:
+    match e:
+        Element.NORMAL:
+            return "Normal"
+        Element.FIRE:
+            return "Fire"
+        Element.EARTH:
+            return "Earth"
+        Element.ELECTRIC:
+            return "Electric"
+        Element.WATER:
+            return "Water"
+        Element.LIGHT:
+            return "Light"
+        Element.DARK:
+            return "Dark"
+        _:
+            return "Unknown"
 
 enum PlayerAttackType {
     BASIC,

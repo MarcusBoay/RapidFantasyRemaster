@@ -7,9 +7,9 @@ extends Control
 @onready var equip_stats_container: VBoxContainer = %EquipStatsContainer
 @onready var equips_container: ItemList = %EquipsContainer
 
-@onready var magic_equipped_container: VBoxContainer = %MagicEquippedContainer
-@onready var attack_stat_container: VBoxContainer = %AttackStatContainer
-@onready var attacks_container: VBoxContainer = %AttacksContainer
+@onready var magic_equipped_container: MagicEquippedContainer = %MagicEquippedContainer
+@onready var attack_stat_container: AttackStatContainer = %AttackStatContainer
+@onready var attacks_container: ItemList = %AttacksContainer
 
 @onready var limit_container: VBoxContainer = %LimitContainer
 
@@ -24,7 +24,9 @@ func _ready() -> void:
 func _connect_signals() -> void:
     MenuSignals.use_item.connect(_use_item)
     EventBus.player_items_empty.connect(_populate_items_container)
-
+    MenuSignals.magic_equipped_button_pressed.connect(_on_magic_equipped_button_pressed)
+    MenuSignals.attack_stat_container_unequip_button_pressed.connect(func(): attack_stat_container.visible = false)
+    MenuSignals.magic_change_button_pressed.connect(func(_idx: int): _populate_attacks_container(Globals.PlayerAttackType.MAGIC); attack_stat_container.visible = false)
 
 ### Actions Container
 
@@ -62,6 +64,7 @@ func _on_equipment_button_pressed() -> void:
 
 func _on_magic_button_pressed() -> void:
     _hide_all_but_toggle(magic_equipped_container)
+    magic_equipped_container.populate_buttons(PlayerManager.equips.magic)
 
 
 func _on_limit_button_pressed() -> void:
@@ -178,3 +181,41 @@ func _on_change_button_pressed() -> void:
     equips_container.show_equips(equip_stats_container.item_ref.item_type)
     # hide self
     equip_stats_container.visible = false
+
+### Magic
+## Magic Equipped Container
+
+func _on_magic_equipped_button_pressed(magic_equipped: PlayerAttack, idx: int) -> void:
+    #_populate_attack_stat_container(magic_equipped)
+    attacks_container.visible = false
+    if magic_equipped:
+        attack_stat_container.visible = true
+        attack_stat_container.populate_info(magic_equipped, idx)
+    else:
+        _populate_attacks_container(Globals.PlayerAttackType.MAGIC)
+
+
+func _populate_attacks_container(attack_type: Globals.PlayerAttackType) -> void:
+    attacks_container.clear()
+    for attack in PlayerManager.inventory.attacks:
+        if attack.type != attack_type:
+            continue
+        # for magic type, do not add attacks that are already equipped
+        if attack.type == Globals.PlayerAttackType.MAGIC:
+            var is_already_equipped := false
+            for i in PlayerManager.equips.magic.size():
+                is_already_equipped = is_already_equipped || (PlayerManager.equips.magic[i] and PlayerManager.equips.magic[i].name == attack.name)
+            if is_already_equipped:
+                continue
+        attacks_container.add_item(attack.name)
+        attacks_container.set_item_metadata(-1, attack)
+        attacks_container.set_item_tooltip_enabled(-1, false)
+    attacks_container.visible = true
+
+func _on_attacks_container_item_selected(index: int) -> void:
+    var attack: PlayerAttack = attacks_container.get_item_metadata(index)
+    if attack.type == Globals.PlayerAttackType.MAGIC:
+        EventBus.player_magic_changed.emit(attack, magic_equipped_container.currently_selected)
+    else:
+        print_debug("TRYIGN TO PEQUIP LIMIASRT!!")
+    attacks_container.visible = false

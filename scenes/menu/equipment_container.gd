@@ -11,17 +11,17 @@ func populate_equipment_container() -> void:
     if PlayerManager.equips.weapon:
         weapon_button.text = PlayerManager.equips.weapon.name
     else:
-        weapon_button.text = "Nothing!"
+        weapon_button.text = "-"
 
     if PlayerManager.equips.armor:
         armor_button.text = PlayerManager.equips.armor.name
     else:
-        armor_button.text = "Nothing!"
+        armor_button.text = "-"
 
     if PlayerManager.equips.accessory:
         accessory_button.text = PlayerManager.equips.accessory.name
     else:
-        accessory_button.text = "Nothing!"
+        accessory_button.text = "-"
 
 func equip(equip: Item, item_type: Globals.ItemType) -> void:
     if equip:
@@ -38,8 +38,8 @@ func equip(equip: Item, item_type: Globals.ItemType) -> void:
 func unequip(item_type: Globals.ItemType) -> void:
     match item_type:
         Globals.ItemType.WEAPON:
-            weapon_button.text = "Nothing!"
+            weapon_button.text = "-"
         Globals.ItemType.ARMOR:
-            armor_button.text = "Nothing!"
+            armor_button.text = "-"
         Globals.ItemType.ACCESSORY:
-            accessory_button.text = "Nothing!"
+            accessory_button.text = "-"

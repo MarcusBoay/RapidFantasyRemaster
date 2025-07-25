@@ -40,3 +40,6 @@ signal player_items_empty()
 
 signal player_equip_changed(equip: Item, equip_type: Globals.ItemType)
 signal player_equip_new(equip: Item, equip_type: Globals.ItemType)
+
+signal player_magic_changed(magic_equipped: PlayerAttack, idx: int)
+signal player_magic_new(magic_equipped: PlayerAttack, idx: int)
