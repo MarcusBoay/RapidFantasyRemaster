@@ -9,10 +9,17 @@ extends Node
 @export var initial_equipped_limit: PlayerAttack
 @export var initial_equipped_magic: Array[PlayerAttack]
 
+@export_group("Initial Overworld Values")
+@export var initial_position: Vector2
+
 var equips: PlayerEquips
 var inventory: PlayerInventory
 var stats: Stats
-var limit: int # 0-100, this is the ONLY player-specific stat... just shove it in here,
+var limit: int # 0-100, this is the ONLY player-specific stat... just shove it in here
+
+# these are only updated when switching away from the overworld scene
+var player_position: Vector2
+var facing_direction: Globals.FACING_DIRECTION
 
 func _ready():
     # set initial values
@@ -23,6 +30,8 @@ func _ready():
     _set_initial_stats()
     _set_initial_equips()
     limit = 0
+    player_position = initial_position
+    facing_direction = Globals.FACING_DIRECTION.DOWN
 
     connect_signals()
 
@@ -44,6 +53,11 @@ func _set_initial_equips():
     equips.magic = initial_equipped_magic.duplicate(true)
     # Player starts out with 1st limit break.
     equips.limit = initial_equipped_limit.duplicate(true)
+
+
+func save_player_overworld(player: PlayerOverworld):
+    player_position = player.position
+    facing_direction = player.facing
 
 
 func connect_signals():

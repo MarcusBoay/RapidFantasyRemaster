@@ -2,7 +2,7 @@
 extends Node2D
 class_name MyTools
 
-@export var player: PlayerCharacter
+@export var player: PlayerOverworld
 @export_tool_button("Place player back to start position", "Callable") var place_player_back = place_player_back_func
 # @export_tool_button("Generate Player Attacks Resources", "Callable") var generate_player_attacks_tool = generate_player_attacks
 # @export_tool_button("Generate Items", "Callable") var generate_items_tool = generate_items
@@ -14,10 +14,10 @@ func _process(_delta):
         # print("HELLO")
         pass
     if not Engine.is_editor_hint():
-	    # Code to execute in game.
+        # Code to execute in game.
         # print("boo")
         pass
-	# Code to execute both in editor and in game.
+    # Code to execute both in editor and in game.
     pass
 
 func place_player_back_func():

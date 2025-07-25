@@ -81,7 +81,7 @@ func _on_save_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-    print_debug("TODO: EXIT MENU, RETURN TO OVERWORLD")
+    SceneLoader.load_scene("res://scenes/overworld.tscn")
 
 
 ### TEST

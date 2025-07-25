@@ -3,6 +3,12 @@ extends Node
 # TODO: should we be keeping track of this..?
 var current_area: Area
 
+enum FACING_DIRECTION {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT,
+}
 
 enum GameState {
     INITIALIZATION,

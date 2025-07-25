@@ -58,3 +58,4 @@ ExtResource("17_lrkpp"): 1
 initial_stats = SubResource("Resource_vphsc")
 initial_equipped_limit = ExtResource("4_cx64s")
 initial_equipped_magic = Array[ExtResource("2_o0hbs")]([ExtResource("6_keqpo"), ExtResource("7_okspr"), ExtResource("8_2gbos"), ExtResource("9_o0hbs")])
+initial_position = Vector2(984, 10080)
