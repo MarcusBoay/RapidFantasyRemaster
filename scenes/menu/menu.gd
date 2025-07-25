@@ -11,8 +11,6 @@ extends Control
 @onready var attack_stat_container: AttackStatContainer = %AttackStatContainer
 @onready var attacks_container: ItemList = %AttacksContainer
 
-@onready var limit_container: VBoxContainer = %LimitContainer
-
 ### Lifecycle
 
 func _ready() -> void:
@@ -27,6 +25,8 @@ func _connect_signals() -> void:
     MenuSignals.magic_equipped_button_pressed.connect(_on_magic_equipped_button_pressed)
     MenuSignals.attack_stat_container_unequip_button_pressed.connect(func(): attack_stat_container.visible = false)
     MenuSignals.magic_change_button_pressed.connect(func(_idx: int): _populate_attacks_container(Globals.PlayerAttackType.MAGIC); attack_stat_container.visible = false)
+    MenuSignals.limit_change_button_pressed.connect(func(): _populate_attacks_container(Globals.PlayerAttackType.LIMIT))
+    EventBus.player_limit_equip_new.connect(func(new_limit: PlayerAttack): attack_stat_container.populate_info(new_limit))
 
 ### Actions Container
 
@@ -41,8 +41,6 @@ func _hide_all_containers() -> void:
     magic_equipped_container.visible = false
     attack_stat_container.visible = false
     attacks_container.visible = false
-
-    limit_container.visible = false
 
 func _hide_all_but_toggle(cont: Control) -> void:
     var orig_visibility = cont.visible
@@ -68,7 +66,9 @@ func _on_magic_button_pressed() -> void:
 
 
 func _on_limit_button_pressed() -> void:
-    _hide_all_but_toggle(limit_container)
+    _hide_all_containers()
+    attack_stat_container.populate_info(PlayerManager.equips.limit)
+    attack_stat_container.visible = true
 
 
 func _on_settings_button_pressed() -> void:
@@ -81,7 +81,7 @@ func _on_save_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-    print_debug("TODO: EXIT MENU")
+    print_debug("TODO: EXIT MENU, RETURN TO OVERWORLD")
 
 
 ### TEST
@@ -216,6 +216,8 @@ func _on_attacks_container_item_selected(index: int) -> void:
     var attack: PlayerAttack = attacks_container.get_item_metadata(index)
     if attack.type == Globals.PlayerAttackType.MAGIC:
         EventBus.player_magic_changed.emit(attack, magic_equipped_container.currently_selected)
+    elif attack.type == Globals.PlayerAttackType.LIMIT:
+        EventBus.player_limit_changed.emit(attack)
     else:
-        print_debug("TRYIGN TO PEQUIP LIMIASRT!!")
+        print_debug("OPPS, WHAT?! this should never happen!")
     attacks_container.visible = false

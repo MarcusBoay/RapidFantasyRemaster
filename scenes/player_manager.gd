@@ -12,7 +12,7 @@ extends Node
 var equips: PlayerEquips
 var inventory: PlayerInventory
 var stats: Stats
-var limit: int # this is the ONLY player-specific stat... just shove it in here
+var limit: int # 0-100, this is the ONLY player-specific stat... just shove it in here,
 
 func _ready():
     # set initial values
@@ -58,6 +58,7 @@ func connect_signals():
     EventBus.player_gold_changed.connect(update_player_gold)
     EventBus.player_equip_changed.connect(update_player_equip)
     EventBus.player_magic_changed.connect(update_player_magic)
+    EventBus.player_limit_equip_changed.connect(update_player_limit_equip)
 
 func update_player_hp(delta: int):
     stats.hp = min(stats.hp_max, stats.hp+delta)
@@ -145,6 +146,10 @@ func update_player_equip(new_equip: Item, equip_type: Globals.ItemType):
 func update_player_magic(new_magic: PlayerAttack, idx: int):
     equips.magic[idx] = new_magic
     EventBus.player_magic_new.emit(new_magic, idx)
+
+func update_player_limit_equip(new_limit: PlayerAttack):
+    equips.limit = new_limit
+    EventBus.player_limit_equip_new.emit(new_limit)
 
 func use_item(item: Item):
     if item.item_type != Globals.ItemType.CONSUMABLE:

@@ -46,4 +46,4 @@ func _on_change_button_pressed() -> void:
         # menu signal to show attacks container with magic
         MenuSignals.magic_change_button_pressed.emit(index)
     else:
-        print_debug("equip some limit!!!")
+        MenuSignals.limit_change_button_pressed.emit()

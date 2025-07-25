@@ -23,23 +23,11 @@ func populate_equipment_container() -> void:
     else:
         accessory_button.text = "-"
 
-func equip(equip: Item, item_type: Globals.ItemType) -> void:
-    if equip:
-        match equip.item_type:
-            Globals.ItemType.WEAPON:
-                weapon_button.text = equip.name
-            Globals.ItemType.ARMOR:
-                armor_button.text = equip.name
-            Globals.ItemType.ACCESSORY:
-                accessory_button.text = equip.name
-    else:
-        unequip(item_type)
-
-func unequip(item_type: Globals.ItemType) -> void:
+func equip(equipment: Item, item_type: Globals.ItemType) -> void:
     match item_type:
         Globals.ItemType.WEAPON:
-            weapon_button.text = "-"
+            weapon_button.text = equipment.name if equip else "-"
         Globals.ItemType.ARMOR:
-            armor_button.text = "-"
+            armor_button.text = equipment.name if equip else "-"
         Globals.ItemType.ACCESSORY:
-            accessory_button.text = "-"
+            accessory_button.text = equipment.name if equip else "-"
