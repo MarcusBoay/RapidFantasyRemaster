@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=24 format=3 uid="uid://dopu0xtmlwdbj"]
+
+[ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://src/enemy/enemy_attack.gd" id="1_5ev2d"]
+[ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://src/enemy/enemy_stats.gd" id="2_c585j"]
+[ext_resource type="Script" uid="uid://m418ptflm4d3" path="res://src/enemy/loot_table.gd" id="3_ns2v0"]
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://src/item/item.gd" id="4_e7wya"]
+[ext_resource type="Resource" uid="uid://pxlrmuo7hxef" path="res://assets/item/RedPotionI.tres" id="5_jtb8w"]
+[ext_resource type="Resource" uid="uid://b8j20lb3vnbxt" path="res://assets/item/BluePotionI.tres" id="6_tvx3e"]
+[ext_resource type="Resource" uid="uid://bmnc4ybcx2pi2" path="res://assets/item/SteelSword.tres" id="7_y8bbp"]
+[ext_resource type="Resource" uid="uid://c2y00x5nf554v" path="res://assets/item/SteelShield.tres" id="8_yywux"]
+[ext_resource type="Resource" uid="uid://dgp4fon0bv7ko" path="res://assets/item/AmethystWand.tres" id="9_k5fvy"]
+[ext_resource type="Resource" uid="uid://c5ancdd3ewo3i" path="res://assets/item/CactusArmor.tres" id="10_b5p3m"]
+[ext_resource type="Resource" uid="uid://bfipqel681sdw" path="res://assets/item/SteelArmor.tres" id="11_6qwyw"]
+[ext_resource type="Resource" uid="uid://bl583c4xkes6m" path="res://assets/item/EnchantedRobes.tres" id="12_ci86c"]
+[ext_resource type="Resource" uid="uid://cpsqinkayd572" path="res://assets/item/PowerRing.tres" id="13_englv"]
+[ext_resource type="Resource" uid="uid://cigcwkr6gcqct" path="res://assets/item/HardBracelet.tres" id="14_x85y2"]
+[ext_resource type="Resource" uid="uid://dfhapcwg1c1a1" path="res://assets/item/WiseNecklace.tres" id="15_thtbn"]
+[ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://src/enemy/enemy.gd" id="16_hky3d"]
+[ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://src/_common/stats.gd" id="17_8263g"]
+[ext_resource type="Texture2D" uid="uid://cvb2r7sw4421p" path="res://assets/enemy/enemy2.png" id="17_c585j"]
+
+[sub_resource type="Resource" id="Resource_5ev2d"]
+script = ExtResource("1_5ev2d")
+name = "Rock throw"
+damage_modifier = 2.0
+mp_use = 0
+attack_type = 0
+
+[sub_resource type="Resource" id="Resource_c585j"]
+script = ExtResource("2_c585j")
+id = 1
+name = "Rocky"
+description = "He's a bit of a blockhead."
+element = 2
+next_phase = -1
+
+[sub_resource type="Resource" id="Resource_ns2v0"]
+script = ExtResource("3_ns2v0")
+no_drop_weight = 10
+items = Dictionary[ExtResource("4_e7wya"), int]({
+ExtResource("5_jtb8w"): 9,
+ExtResource("6_tvx3e"): 6
+})
+
+[sub_resource type="Resource" id="Resource_e7wya"]
+script = ExtResource("3_ns2v0")
+no_drop_weight = 13
+items = Dictionary[ExtResource("4_e7wya"), int]({
+ExtResource("7_y8bbp"): 1,
+ExtResource("8_yywux"): 1,
+ExtResource("9_k5fvy"): 1,
+ExtResource("10_b5p3m"): 1,
+ExtResource("11_6qwyw"): 1,
+ExtResource("12_ci86c"): 1,
+ExtResource("13_englv"): 1,
+ExtResource("14_x85y2"): 1,
+ExtResource("15_thtbn"): 1
+})
+
+[sub_resource type="Resource" id="Resource_jtb8w"]
+script = ExtResource("17_8263g")
+hp_max = 50
+mp_max = 8
+hp = 50
+mp = 8
+strength = 7
+wisdom = 7
+defense = 8
+level = 1
+experience = 200
+gold = 70
+battle_sprite = ExtResource("17_c585j")
+
+[resource]
+script = ExtResource("16_hky3d")
+stats = SubResource("Resource_jtb8w")
+enemy_stats = SubResource("Resource_c585j")
+attacks = Array[ExtResource("1_5ev2d")]([SubResource("Resource_5ev2d")])
+loot_table = Array[ExtResource("3_ns2v0")]([SubResource("Resource_ns2v0"), SubResource("Resource_e7wya")])

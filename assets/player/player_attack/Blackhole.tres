@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerAttack" load_steps=2 format=3 uid="uid://brrflid3ux4jd"]
+
+[ext_resource type="Script" uid="uid://iek1yg1f8q70" path="res://src/player/player_attack.gd" id="1_f02sr"]
+
+[resource]
+script = ExtResource("1_f02sr")
+id = 21
+name = "Blackhole"
+type = 2
+element = 0
+mp_use = 75
+tier = 3

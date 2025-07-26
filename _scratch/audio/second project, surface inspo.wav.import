@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://coof0tp1ahbnv"
+path="res://.godot/imported/second project, surface inspo.wav-d2251f439a7f54e7b4279d0da91ff0c6.sample"
+
+[deps]
+
+source_file="res://_scratch/audio/second project, surface inspo.wav"
+dest_files=["res://.godot/imported/second project, surface inspo.wav-d2251f439a7f54e7b4279d0da91ff0c6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

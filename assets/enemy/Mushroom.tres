@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=25 format=3 uid="uid://wifr8ts1jvw1"]
+
+[ext_resource type="Script" uid="uid://daxxde81v41tf" path="res://src/enemy/enemy_attack.gd" id="1_dn1ns"]
+[ext_resource type="Script" uid="uid://bd5awxjnsa6un" path="res://src/enemy/enemy_stats.gd" id="2_q3r1o"]
+[ext_resource type="Script" uid="uid://m418ptflm4d3" path="res://src/enemy/loot_table.gd" id="3_be6md"]
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://src/item/item.gd" id="4_nnhy3"]
+[ext_resource type="Resource" uid="uid://pxlrmuo7hxef" path="res://assets/item/RedPotionI.tres" id="5_2h408"]
+[ext_resource type="Resource" uid="uid://b8j20lb3vnbxt" path="res://assets/item/BluePotionI.tres" id="6_hmbpi"]
+[ext_resource type="Resource" uid="uid://bmnc4ybcx2pi2" path="res://assets/item/SteelSword.tres" id="7_pwnjw"]
+[ext_resource type="Resource" uid="uid://c2y00x5nf554v" path="res://assets/item/SteelShield.tres" id="8_pghvv"]
+[ext_resource type="Resource" uid="uid://dgp4fon0bv7ko" path="res://assets/item/AmethystWand.tres" id="9_ijo2a"]
+[ext_resource type="Resource" uid="uid://c5ancdd3ewo3i" path="res://assets/item/CactusArmor.tres" id="10_bex3r"]
+[ext_resource type="Resource" uid="uid://bfipqel681sdw" path="res://assets/item/SteelArmor.tres" id="11_omsv8"]
+[ext_resource type="Resource" uid="uid://bl583c4xkes6m" path="res://assets/item/EnchantedRobes.tres" id="12_sokxv"]
+[ext_resource type="Resource" uid="uid://cpsqinkayd572" path="res://assets/item/PowerRing.tres" id="13_nklr8"]
+[ext_resource type="Resource" uid="uid://cigcwkr6gcqct" path="res://assets/item/HardBracelet.tres" id="14_2l1u3"]
+[ext_resource type="Resource" uid="uid://dfhapcwg1c1a1" path="res://assets/item/WiseNecklace.tres" id="15_6ywov"]
+[ext_resource type="Script" uid="uid://f5xnxyqcuikp" path="res://src/enemy/enemy.gd" id="16_owy7o"]
+[ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://src/_common/stats.gd" id="17_gxj7s"]
+[ext_resource type="Texture2D" uid="uid://cjpjj2kjbafyv" path="res://assets/enemy/enemy3.png" id="17_q3r1o"]
+
+[sub_resource type="Resource" id="Resource_dn1ns"]
+script = ExtResource("1_dn1ns")
+name = "Hallucinate"
+damage_modifier = 2.0
+mp_use = 5
+attack_type = 1
+
+[sub_resource type="Resource" id="Resource_q3r1o"]
+script = ExtResource("1_dn1ns")
+name = "Spores"
+damage_modifier = 2.5
+mp_use = 0
+attack_type = 0
+
+[sub_resource type="Resource" id="Resource_be6md"]
+script = ExtResource("2_q3r1o")
+id = 2
+name = "Mushroom"
+description = "Shrooms will mess you up, that's why they're illegal."
+element = 2
+next_phase = -1
+
+[sub_resource type="Resource" id="Resource_nnhy3"]
+script = ExtResource("3_be6md")
+no_drop_weight = 10
+items = Dictionary[ExtResource("4_nnhy3"), int]({
+ExtResource("5_2h408"): 9,
+ExtResource("6_hmbpi"): 6
+})
+
+[sub_resource type="Resource" id="Resource_2h408"]
+script = ExtResource("3_be6md")
+no_drop_weight = 13
+items = Dictionary[ExtResource("4_nnhy3"), int]({
+ExtResource("7_pwnjw"): 1,
+ExtResource("8_pghvv"): 1,
+ExtResource("9_ijo2a"): 1,
+ExtResource("10_bex3r"): 1,
+ExtResource("11_omsv8"): 1,
+ExtResource("12_sokxv"): 1,
+ExtResource("13_nklr8"): 1,
+ExtResource("14_2l1u3"): 1,
+ExtResource("15_6ywov"): 1
+})
+
+[sub_resource type="Resource" id="Resource_hmbpi"]
+script = ExtResource("17_gxj7s")
+hp_max = 48
+mp_max = 15
+hp = 48
+mp = 15
+strength = 5
+wisdom = 10
+defense = 5
+level = 1
+experience = 250
+gold = 55
+battle_sprite = ExtResource("17_q3r1o")
+
+[resource]
+script = ExtResource("16_owy7o")
+stats = SubResource("Resource_hmbpi")
+enemy_stats = SubResource("Resource_be6md")
+attacks = Array[ExtResource("1_dn1ns")]([SubResource("Resource_dn1ns"), SubResource("Resource_q3r1o")])
+loot_table = Array[ExtResource("3_be6md")]([SubResource("Resource_nnhy3"), SubResource("Resource_2h408")])

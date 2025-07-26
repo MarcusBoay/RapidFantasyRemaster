@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcuo687u0my24"]
-
-[ext_resource type="Script" uid="uid://drbppytqma7ur" path="res://scenes/menu/magic_equipped_button.gd" id="1_b02j0"]
-
-[node name="MagicEquippedButton1" type="Button"]
-text = "MAGICWEP"
-script = ExtResource("1_b02j0")
-index = 4

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cigcwkr6gcqct"]
+
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://src/item/item.gd" id="1_trax1"]
+[ext_resource type="Script" uid="uid://d2ch2srpkltys" path="res://src/item/item_stats.gd" id="2_4315a"]
+
+[sub_resource type="Resource" id="Resource_trax1"]
+script = ExtResource("2_4315a")
+hp_max = 25
+mp_max = 0
+hp = 0
+mp = 0
+strength = 0
+wisdom = 5
+defense = 6
+
+[resource]
+script = ExtResource("1_trax1")
+id = 29
+name = "Hard Bracelet"
+item_type = 3
+stats = SubResource("Resource_trax1")

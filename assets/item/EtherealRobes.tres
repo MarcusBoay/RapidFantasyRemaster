@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://ku535byh8la4"]
+
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://src/item/item.gd" id="1_7hjnf"]
+[ext_resource type="Script" uid="uid://d2ch2srpkltys" path="res://src/item/item_stats.gd" id="2_qrsoc"]
+
+[sub_resource type="Resource" id="Resource_7hjnf"]
+script = ExtResource("2_qrsoc")
+hp_max = 15
+mp_max = 0
+hp = 0
+mp = 0
+strength = 0
+wisdom = 30
+defense = 6
+
+[resource]
+script = ExtResource("1_7hjnf")
+id = 27
+name = "Ethereal Robes"
+item_type = 2
+stats = SubResource("Resource_7hjnf")

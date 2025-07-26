@@ -1,0 +1,61 @@
+[gd_scene load_steps=21 format=3 uid="uid://b05u3g3k4vad4"]
+
+[ext_resource type="Script" uid="uid://c8wqftjr31ukj" path="res://src/player/player_manager.gd" id="1_wd4cv"]
+[ext_resource type="Texture2D" uid="uid://4xadp3hpmunm" path="res://assets/player/player_battle.png" id="2_1aieh"]
+[ext_resource type="Script" uid="uid://iek1yg1f8q70" path="res://src/player/player_attack.gd" id="2_o0hbs"]
+[ext_resource type="Script" uid="uid://dy3uprrjetgpe" path="res://src/_common/stats.gd" id="3_oav6u"]
+[ext_resource type="Resource" uid="uid://c8s4bq06bsx6e" path="res://assets/player/player_attack/Tackle.tres" id="3_pk1l5"]
+[ext_resource type="Resource" uid="uid://dhk1y2qxxdpqo" path="res://assets/player/player_attack/SonicSpike.tres" id="4_cx64s"]
+[ext_resource type="Resource" uid="uid://cc88lghgdsokh" path="res://assets/player/player_attack/FireBall.tres" id="6_keqpo"]
+[ext_resource type="Resource" uid="uid://bg04oao35kii2" path="res://assets/player/player_attack/DarkSpear.tres" id="7_8q8fb"]
+[ext_resource type="Resource" uid="uid://c55bnmy41yxpl" path="res://assets/player/player_attack/LightningBolt.tres" id="7_okspr"]
+[ext_resource type="Resource" uid="uid://cswm8gnpwkseu" path="res://assets/player/player_attack/BubbleBeam.tres" id="8_2gbos"]
+[ext_resource type="Resource" uid="uid://ca5p2pp01m6ab" path="res://assets/player/player_attack/HolyLight.tres" id="8_c35j7"]
+[ext_resource type="Resource" uid="uid://c70mr3twyayww" path="res://assets/player/player_attack/StoneEdge.tres" id="9_o0hbs"]
+[ext_resource type="Script" uid="uid://dg4lfyww0gfix" path="res://src/item/item.gd" id="11_xro25"]
+[ext_resource type="Resource" uid="uid://pxlrmuo7hxef" path="res://assets/item/RedPotionI.tres" id="12_lrkpp"]
+[ext_resource type="Resource" uid="uid://b8j20lb3vnbxt" path="res://assets/item/BluePotionI.tres" id="13_8ha2q"]
+[ext_resource type="Resource" uid="uid://c50wd8g3jipkk" path="res://assets/item/SagaciousNecklace.tres" id="14_c35j7"]
+[ext_resource type="Resource" uid="uid://bmnc4ybcx2pi2" path="res://assets/item/SteelSword.tres" id="15_xro25"]
+[ext_resource type="Resource" uid="uid://bfipqel681sdw" path="res://assets/item/SteelArmor.tres" id="16_xro25"]
+[ext_resource type="Resource" uid="uid://c5ancdd3ewo3i" path="res://assets/item/CactusArmor.tres" id="17_lrkpp"]
+
+[sub_resource type="Resource" id="Resource_vphsc"]
+script = ExtResource("3_oav6u")
+hp_max = 100
+mp_max = 100
+hp = 100
+mp = 100
+strength = 12
+wisdom = 12
+defense = 5
+level = 1
+experience = 0
+gold = 0
+battle_sprite = ExtResource("2_1aieh")
+metadata/_custom_type_script = "uid://dy3uprrjetgpe"
+
+[node name="PlayerManager" type="Node"]
+script = ExtResource("1_wd4cv")
+initial_attacks = Dictionary[ExtResource("2_o0hbs"), int]({
+ExtResource("3_pk1l5"): 0,
+ExtResource("8_2gbos"): 0,
+ExtResource("9_o0hbs"): 0,
+ExtResource("7_okspr"): 0,
+ExtResource("7_8q8fb"): 0,
+ExtResource("8_c35j7"): 0,
+ExtResource("6_keqpo"): 0,
+ExtResource("4_cx64s"): 0
+})
+initial_items = Dictionary[ExtResource("11_xro25"), int]({
+ExtResource("12_lrkpp"): 5,
+ExtResource("13_8ha2q"): 5,
+ExtResource("14_c35j7"): 1,
+ExtResource("15_xro25"): 1,
+ExtResource("16_xro25"): 1,
+ExtResource("17_lrkpp"): 1
+})
+initial_stats = SubResource("Resource_vphsc")
+initial_equipped_limit = ExtResource("4_cx64s")
+initial_equipped_magic = Array[ExtResource("2_o0hbs")]([ExtResource("6_keqpo"), ExtResource("7_okspr"), ExtResource("8_2gbos"), ExtResource("9_o0hbs")])
+initial_position = Vector2(984, 10080)

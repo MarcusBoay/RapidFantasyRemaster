@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerAttack" load_steps=2 format=3 uid="uid://ca5p2pp01m6ab"]
+
+[ext_resource type="Script" uid="uid://iek1yg1f8q70" path="res://src/player/player_attack.gd" id="1_jbcf0"]
+
+[resource]
+script = ExtResource("1_jbcf0")
+id = 8
+name = "Holy Light"
+type = 2
+element = 0
+mp_use = 10
+tier = 1

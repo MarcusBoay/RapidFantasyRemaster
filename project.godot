@@ -34,11 +34,11 @@ AppConfig="*res://addons/maaacks_menus_template/base/scenes/autoloads/app_config
 SceneLoader="*res://addons/maaacks_menus_template/base/scenes/autoloads/scene_loader.tscn"
 ProjectMusicController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
-Globals="*res://scripts/global.gd"
-EventBus="*res://scripts/event_bus.gd"
-MenuSignals="*res://scenes/menu/menu_signals.gd"
-GameManager="*res://scripts/GameManager.tscn"
-PlayerManager="*res://scenes/player_manager.tscn"
+Globals="*res://src/global.gd"
+PlayerSignals="*res://src/player_signals.gd"
+MenuSignals="*res://src/menu/menu_signals.gd"
+GameManager="*res://_scratch/GameManager.tscn"
+PlayerManager="*res://assets/player/player_manager.tscn"
 
 [display]
 
@@ -55,7 +55,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg")
+enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/script-dock/addons/script-dock/plugin.cfg")
 
 [global_group]
 
