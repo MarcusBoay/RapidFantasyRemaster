@@ -61,18 +61,3 @@ enum ItemType {
     ARMOR,
     ACCESSORY,
 }
-
-# TODO: to clean up
-# class Player:
-#     var x: float
-#     var y: float
-#     var stats: Stats
-#     var limit: int
-#     var area: int # area id
-
-#     func _init():
-#         self.x = 0
-#         self.y = 0
-#         self.stats = Stats.new()
-#         self.limit = 0
-#         self.area = 0
