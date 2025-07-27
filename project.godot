@@ -40,6 +40,14 @@ MenuSignals="*res://src/menu/menu_signals.gd"
 GameManager="*res://_scratch/GameManager.tscn"
 PlayerManager="*res://assets/player/player_manager.tscn"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/unsafe_call_argument=1
+
 [display]
 
 window/size/viewport_width=512
@@ -56,6 +64,13 @@ version_control/autoload_on_startup=true
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/script-dock/addons/script-dock/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "green",
+"res://src/": "blue"
+}
 
 [global_group]
 
