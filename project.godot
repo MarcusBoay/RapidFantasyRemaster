@@ -79,7 +79,7 @@ player=""
 
 [gui]
 
-theme/custom="res://addons/maaacks_menus_template/examples/resources/themes/lore.tres"
+theme/custom="uid://h7oy1by7cgh7"
 
 [input]
 

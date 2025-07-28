@@ -181,30 +181,37 @@ layout_mode = 2
 
 [node name="ItemsButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
 layout_mode = 2
+keep_pressed_outside = true
 text = "Items"
 
 [node name="EquipmentButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
 layout_mode = 2
+keep_pressed_outside = true
 text = "Equips"
 
 [node name="MagicButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
 layout_mode = 2
+keep_pressed_outside = true
 text = "Magic"
 
 [node name="LimitButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
 layout_mode = 2
+keep_pressed_outside = true
 text = "Limit"
 
 [node name="SettingsButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
 layout_mode = 2
+keep_pressed_outside = true
 text = "Settings"
 
 [node name="SaveButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
 layout_mode = 2
+keep_pressed_outside = true
 text = "Save"
 
 [node name="ExitButton" type="Button" parent="PanelContainer/HBoxContainer/ActionsContainer"]
 layout_mode = 2
+keep_pressed_outside = true
 text = "Exit"
 
 [connection signal="pressed" from="PanelContainer/HBoxContainer/TestContainer/AddHP" to="." method="_on_add_hp_pressed"]

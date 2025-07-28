@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://re6sbi18ls85"]
+
+[ext_resource type="FontFile" uid="uid://dqokjnxp25uv1" path="res://_scratch/fonts/FiraMono-Medium.ttf" id="1_t7uit"]
+
+[resource]
+Button/font_sizes/font_size = 12
+Button/fonts/font = ExtResource("1_t7uit")

@@ -1,0 +1,180 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpk54x5e0d6f2"]
+
+[ext_resource type="Texture2D" uid="uid://4xadp3hpmunm" path="res://assets/player/player_battle.png" id="1_oyv2c"]
+[ext_resource type="Script" uid="uid://7a0c02aaedyw" path="res://src/battle/stats_container.gd" id="2_1e0e5"]
+[ext_resource type="Texture2D" uid="uid://c70xxnitun1qk" path="res://assets/enemy/enemy1.png" id="2_tlmnd"]
+[ext_resource type="Texture2D" uid="uid://c40smpbt1brq3" path="res://assets/battle/green.png" id="3_6cxqy"]
+[ext_resource type="Texture2D" uid="uid://b5i1fe1rq7qd3" path="res://assets/battle/blue.png" id="4_1054f"]
+[ext_resource type="Texture2D" uid="uid://bxqi761pej644" path="res://assets/battle/red.png" id="5_hsiu5"]
+[ext_resource type="Texture2D" uid="uid://cpslr7a7e8q85" path="res://assets/battle/darkblue.png" id="5_tlmnd"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnnouncementContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/AnnouncementContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "ANNOUNCEMENT ANNOUNCEMENT ANNOUNCEMENT ANNOUNCEMENT ANNOUNCEMENT ANNOUNCEMENT ANNOUNCEMENT ANNOUNCEMENT ANNOUNCEMENT ANNOUNCEMENT"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ModelContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/ModelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ModelContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/ModelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerModel" type="TextureRect" parent="VBoxContainer/ModelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("1_oyv2c")
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/ModelContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/ModelContainer"]
+layout_mode = 2
+
+[node name="EnemyModel" type="TextureRect" parent="VBoxContainer/ModelContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_tlmnd")
+
+[node name="Spacer3" type="Control" parent="VBoxContainer/ModelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Spacer2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerHUDPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlayerHUDPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 4
+
+[node name="PlayerHUDContainer" type="HBoxContainer" parent="VBoxContainer/PlayerHUDPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="StatsContainer" type="VBoxContainer" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer"]
+layout_mode = 2
+script = ExtResource("2_1e0e5")
+
+[node name="HPLabel" type="Label" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/StatsContainer"]
+layout_mode = 2
+text = "HP: 100/100"
+
+[node name="HPBar" type="TextureProgressBar" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+value = 100.0
+nine_patch_stretch = true
+stretch_margin_left = 64
+stretch_margin_top = 5
+stretch_margin_right = 64
+stretch_margin_bottom = 5
+texture_under = ExtResource("5_hsiu5")
+texture_progress = ExtResource("3_6cxqy")
+
+[node name="MPLabel" type="Label" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/StatsContainer"]
+layout_mode = 2
+text = "MP: 50/50"
+
+[node name="MPBar" type="TextureProgressBar" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 64
+stretch_margin_top = 5
+stretch_margin_right = 64
+stretch_margin_bottom = 5
+texture_under = ExtResource("4_1054f")
+texture_progress = ExtResource("5_tlmnd")
+
+[node name="LimitLabel" type="Label" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/StatsContainer"]
+layout_mode = 2
+text = "Limit:"
+
+[node name="LimitBar" type="TextureProgressBar" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/StatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 64
+stretch_margin_top = 5
+stretch_margin_right = 64
+stretch_margin_bottom = 5
+texture_progress = ExtResource("5_hsiu5")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+
+[node name="ActionsContainer" type="VBoxContainer" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="AttackButton" type="Button" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/MarginContainer/ActionsContainer"]
+layout_mode = 2
+text = "Attack"
+
+[node name="MagicButton" type="Button" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/MarginContainer/ActionsContainer"]
+layout_mode = 2
+text = "Magic"
+
+[node name="BlockButton" type="Button" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/MarginContainer/ActionsContainer"]
+layout_mode = 2
+text = "Block"
+
+[node name="ItemButton" type="Button" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer/MarginContainer/ActionsContainer"]
+layout_mode = 2
+text = "Item"
+
+[node name="MagicContainer" type="VBoxContainer" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer"]
+layout_mode = 2
+
+[node name="ItemContainer" type="VBoxContainer" parent="VBoxContainer/PlayerHUDPanel/MarginContainer/PlayerHUDContainer"]
+layout_mode = 2
